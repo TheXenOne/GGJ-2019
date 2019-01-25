@@ -26,8 +26,9 @@ namespace Assets.Gameplay
             {
                 state.Exit();
             }
-            
-            
+
+            Debug.Log("Transitioning from game state " + ((state != null) ? state.ToString() : "(none)") +
+                " to " + ((nextState != null) ? nextState.ToString() : "(none)"));
             state = nextState;
 
             if (state != null)

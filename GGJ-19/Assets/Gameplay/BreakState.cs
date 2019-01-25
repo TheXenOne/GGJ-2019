@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Assets.Gameplay
 {
+    /// <summary>
+    /// The "idle" state between battles
+    /// </summary>
     public class BreakState : ILoopState
     {
         public void Enter()
