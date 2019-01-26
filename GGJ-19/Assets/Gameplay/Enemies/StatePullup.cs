@@ -21,6 +21,8 @@ public class StatePullup : State<EnemyAI>
     public override void Enter(EnemyAI a_entity)
     {
         Debug.Log("Enemy entered StatePullup.");
+        a_entity.characterController.enabled = true;
+        a_entity.enemyCapsuleCollider.enabled = true;
     }
 
     public override void Execute(EnemyAI a_entity)

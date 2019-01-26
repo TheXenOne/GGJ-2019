@@ -23,21 +23,12 @@ public class StateClimb : State<EnemyAI>
         Debug.Log("Enemy entered StateClimb.");
         a_entity.isClimbing = false;
         a_entity.useGravity = false;
+        a_entity.characterController.enabled = false;
+        a_entity.enemyCapsuleCollider.enabled = false;
     }
 
     public override void Execute(EnemyAI a_entity)
     {
-        //bool atTopOfCaravan = IsAtCaravanTop(a_entity);
-        //RaycastHit climbPointHit;
-        //if (Physics.Raycast(a_entity.climbPoint.transform.position, a_entity.climbPoint.transform.TransformDirection(Vector3.forward), out climbPointHit, a_entity.maxClimbDistance))
-        //{
-        //    if (climbPointHit.collider.gameObject.tag == "Caravan")
-        //    {
-        //        Climb(a_entity);
-        //    }
-        //    Debug.DrawRay(a_entity.climbPoint.transform.position, a_entity.climbPoint.transform.TransformDirection(Vector3.forward) * climbPointHit.distance, Color.red);
-        //}
-
         if (IsAtCaravanTop(a_entity))
         {
             a_entity.enemyStateMachine.ChangeState(StatePullup.Instance);
@@ -50,10 +41,12 @@ public class StateClimb : State<EnemyAI>
 
     private bool IsAtCaravanTop(EnemyAI a_entity)
     {
+        bool drew = false;
         RaycastHit headPointHit;
         if (Physics.Raycast(a_entity.headPoint.transform.position, a_entity.headPoint.transform.TransformDirection(Vector3.forward), out headPointHit, a_entity.maxClimbDistance))
         {
             Debug.DrawRay(a_entity.headPoint.transform.position, a_entity.headPoint.transform.TransformDirection(Vector3.forward) * headPointHit.distance, Color.red);
+            drew = true;
 
             if (headPointHit.collider.gameObject.tag == "Caravan")
             {
@@ -61,23 +54,63 @@ public class StateClimb : State<EnemyAI>
             }
         }
 
-        Debug.DrawRay(a_entity.headPoint.transform.position, a_entity.headPoint.transform.TransformDirection(Vector3.forward) * a_entity.maxClimbDistance, Color.red);
+        if (drew == false)
+        {
+            Debug.DrawRay(a_entity.headPoint.transform.position, a_entity.headPoint.transform.TransformDirection(Vector3.forward) * a_entity.maxClimbDistance, Color.red);
+        }
 
         return true;
     }
 
     private void Climb(EnemyAI a_entity)
     {
+        int layermask = 1 << 9;
+        RaycastHit climbPointHit;
+        if (Physics.Raycast(a_entity.climbPoint.transform.position, a_entity.climbPoint.transform.TransformDirection(Vector3.forward), out climbPointHit, a_entity.maxClimbDistance, layermask))
+        {
+            if (climbPointHit.collider.gameObject.tag == "Caravan")
+            {
+                MeshCollider meshCollider = climbPointHit.collider as MeshCollider;
+                if (meshCollider != null && meshCollider.sharedMesh != null)
+                {
+                    Mesh mesh = meshCollider.sharedMesh;
+                    Vector3[] normals = mesh.normals;
+                    int[] triangles = mesh.triangles;
+
+                    Vector3 n0 = normals[triangles[climbPointHit.triangleIndex * 3 + 0]];
+                    Vector3 n1 = normals[triangles[climbPointHit.triangleIndex * 3 + 1]];
+                    Vector3 n2 = normals[triangles[climbPointHit.triangleIndex * 3 + 2]];
+                    Vector3 baryCenter = climbPointHit.barycentricCoordinate;
+                    Vector3 interpolatedNormal = n0 * baryCenter.x + n1 * baryCenter.y + n2 * baryCenter.z;
+                    interpolatedNormal.Normalize();
+                    interpolatedNormal = climbPointHit.transform.TransformDirection(interpolatedNormal);
+                    //float angle = Vector3.SignedAngle(a_entity.transform.forward, -interpolatedNormal, Vector3.up);
+                    //a_entity.transform.Rotate(new Vector3(-angle * Time.deltaTime, 0, 0));
+                    float angle = Vector3.SignedAngle(Vector3.up, -interpolatedNormal, Vector3.up);
+                    if (angle < (180 - 80))
+                    {
+                        a_entity.transform.rotation = Quaternion.LookRotation(-interpolatedNormal);
+                    }
+                    
+                    a_entity.transform.localPosition += a_entity.transform.up * a_entity.climbSpeed * Time.deltaTime;
+                }
+            }
+        }
+
         if (!a_entity.isClimbing)
         {
-            a_entity.velocity = new Vector3(a_entity.velocity.x, a_entity.velocity.y + (a_entity.climbSpeed * 60 * Time.deltaTime), a_entity.velocity.z);
+            //a_entity.velocity = new Vector3(a_entity.velocity.x, a_entity.velocity.y + (a_entity.climbSpeed * Time.deltaTime), a_entity.velocity.z);
             a_entity.isClimbing = true;
         }
     }
 
     private void StopClimbing(EnemyAI a_entity)
     {
-        a_entity.velocity = new Vector3(a_entity.velocity.x, a_entity.velocity.y - (a_entity.climbSpeed *Time.deltaTime), a_entity.velocity.z);
+        a_entity.velocity = new Vector3(a_entity.velocity.x, a_entity.velocity.y - (a_entity.climbSpeed * Time.deltaTime), a_entity.velocity.z);
+        Vector3 playerPos = EnemyAI.player.transform.position;
+        Vector3 enemyPos = a_entity.transform.position;
+        enemyPos.y = playerPos.y;
+        a_entity.transform.rotation = Quaternion.LookRotation(-(enemyPos - playerPos).normalized, Vector3.up);
     }
 
     public override void Exit(EnemyAI a_entity)
