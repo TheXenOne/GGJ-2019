@@ -6,8 +6,11 @@ namespace Assets.Components
 {
     public class CaravanWagon : MonoBehaviour
     {
-        public Mesh wagonBase;
-        public Mesh[] wagonUpgrades;
+        public Mesh m_wagonBase;
+        public Mesh[] m_wagonUpgrades;
+
+        public int m_fleetPositionX;
+        public int m_fleetPositionZ;
 
         // Start is called before the first frame update
         void Start()
