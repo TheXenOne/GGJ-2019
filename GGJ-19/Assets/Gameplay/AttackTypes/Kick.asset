@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44053ff58e8f8224a8bd2206929372da, type: 3}
   m_Name: Kick
   m_EditorClassIdentifier: 
-  BaseDamage: 0
+  BaseDamage: 3
   Modifier: 0
-  Multiplier: 0
+  Multiplier: 1
