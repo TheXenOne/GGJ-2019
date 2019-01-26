@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
+using Random = UnityEngine.Random;
+
 namespace Assets.Components
 {
     public class Hex
@@ -26,7 +28,7 @@ namespace Assets.Components
         List<GameObject> m_wagonObjects = new List<GameObject>();
         List<Hex> m_hexes = new List<Hex>();
 
-        public void Start()
+        public void Awake()
         {
             Debug.Log("Initial caravan creation");
 
@@ -67,6 +69,16 @@ namespace Assets.Components
         public GameObject GetWagon(int positionX, int positionY)
         {
             return GetHex(positionX, positionY)?.wagon;
+        }
+
+        public GameObject GetRandomWagon()
+        {
+            if(m_wagonObjects.Count == 0)
+            {
+                return null;
+            }
+
+            return m_wagonObjects[Random.Range(0, m_wagonObjects.Count - 1)];
         }
 
         public void AddWagon()

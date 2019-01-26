@@ -18,12 +18,12 @@ public class Player : MonoBehaviour
     {
         Bounds bounds = wagonComponent.GetComponent<Collider>().bounds;
 
-        transform.position = bounds.center + Vector3.up * bounds.extents.y;
+        transform.position = bounds.center + Vector3.up * bounds.size.y;
     }
 
     public void RespawnRandom()
     {
-        var wagon = gameplay.caravan.GetComponent<Caravan>().GetRandomWagon();
+        var wagon = gameplay.m_caravan.GetComponent<Caravan>().GetRandomWagon();
 
         Respawn(wagon.GetComponent<CaravanWagon>().GetRandomActiveComponent());
     }
