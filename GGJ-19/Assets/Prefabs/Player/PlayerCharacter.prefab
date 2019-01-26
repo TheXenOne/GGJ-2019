@@ -111,3 +111,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 100
   jumpStrength: 100
+  gravity: 10
+  movementEnabled: 1
