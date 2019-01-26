@@ -9,10 +9,10 @@ public class Enemy : Character
     public EnemyType m_enemyType;
 
     public Slider slider;
-    public GameObject camera;
 
     private void Start()
     {
+        base.Awake();
         this.hitPoints = m_enemyType.m_hitpoints;
         maxHitPoint = hitPoints;
         slider.value = hitPoints / maxHitPoint;
@@ -20,7 +20,7 @@ public class Enemy : Character
 
     private void Update()
     {
-        slider.transform.rotation = Quaternion.LookRotation(camera.transform.position - transform.position);
+        slider.transform.rotation = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
     }
 
     public override void TakeDamage(float damage)
@@ -38,6 +38,6 @@ public class Enemy : Character
     public override void EventDied()
     {
         Debug.Log("Enemy Died!");
-        Destroy(this);
+        //Destroy(this);
     }
 }
