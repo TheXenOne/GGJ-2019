@@ -1,4 +1,5 @@
 ﻿using Assets.Components;
+using Assets.Gameplay.Spawning;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,12 @@ namespace Assets.Gameplay
     /// </summary>
     public class BattleState : LoopState
     {
-        override public void Enter()
+        public override void Enter()
         {
+            int spawnScore = Gameplay.Instance.m_battlesFought * 2 + 3;
+            var spawnManager = Gameplay.Instance.GetComponent<SpawnManager>();
+
+            spawnManager.Spawn(spawnScore, (obj) => m_enemies.Add(obj));
         }
 
         override public void Exit()
