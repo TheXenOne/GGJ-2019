@@ -15,11 +15,11 @@ public class EnemyAI : MonoBehaviour
     public float turnSpeed;
     public StateMachine<EnemyAI> enemyStateMachine;
 
-	[HideInInspector]
-	public bool isKnockedBack;
 	public float deceleration;
 	public float gravity;
 	public float maxFallingSpeed;
+	[HideInInspector]
+	public bool isKnockedBack;
 	[HideInInspector]
 	public bool useGravity;
 	[HideInInspector]
