@@ -9,7 +9,7 @@ public abstract class Character : MonoBehaviour
 
     public abstract void EventDied();
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         hitPoints -= damage;
 
