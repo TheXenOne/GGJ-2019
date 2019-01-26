@@ -240,14 +240,14 @@ MonoBehaviour:
   headPoint: {fileID: 8308923292337820548}
   climbSpeed: 3
   maxClimbDistance: 3
-  accelMoveSpeed: 80
+  accelMoveSpeed: 400
   moveSpeedMax: 20
   attackRange: 4
   turnSpeed: 0.1
-  isKnockedBack: 0
-  deceleration: 60
+  deceleration: 250
   gravity: 40
   maxFallingSpeed: 40
+  isKnockedBack: 0
   useGravity: 0
   velocity: {x: 0, y: 0, z: 0}
   enemyCapsuleCollider: {fileID: 0}
