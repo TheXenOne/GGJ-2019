@@ -7,13 +7,13 @@ using UnityEngine.UI;
 
 public class Player : Character
 {
-    public Gameplay gameplay;
     public static Player Instance;
 
 	private Slider healthSlider;
     
     void Awake()
     {
+        base.Awake();
         Instance = this;
 		healthSlider.maxValue = hitPoints;
 		healthSlider.value = hitPoints;
