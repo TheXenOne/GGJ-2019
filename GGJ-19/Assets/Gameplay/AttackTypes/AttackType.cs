@@ -8,5 +8,5 @@ public class AttackType : ScriptableObject
     public float BaseDamage;
     public float Modifier;
     public float Multiplier;
-    public float Damage { get => BaseDamage * Multiplier + Modifier}    
+    public float Damage => BaseDamage * Multiplier + Modifier;
 }

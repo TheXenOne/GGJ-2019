@@ -6,6 +6,7 @@ using Assets.Components;
 
 public class Player : Character
 {
+    public Gameplay gameplay;
     public static Player Instance;
     
     void Awake()
@@ -22,7 +23,7 @@ public class Player : Character
 
     public void RespawnRandom()
     {
-        var wagon = Gameplay.Caravan.GetRandomWagon();
+        var wagon = gameplay.m_caravan.GetComponent<Caravan>().GetRandomWagon();
 
         Respawn(wagon.GetComponent<CaravanWagon>().GetRandomActiveComponent());
     }
@@ -31,7 +32,6 @@ public class Player : Character
     {
         Debug.Log("Player died! Respawning...");
         RespawnRandom();
-
-        this.Attack<listofattacks[0]>(player);
+        
     }
 }
