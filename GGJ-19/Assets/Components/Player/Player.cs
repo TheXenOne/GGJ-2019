@@ -23,7 +23,7 @@ public class Player : Character
 
     public void RespawnRandom()
     {
-        var wagon = gameplay.m_caravan.GetComponent<Caravan>().GetRandomWagon();
+        var wagon = Gameplay.Caravan.GetRandomWagon();
 
         Respawn(wagon.GetComponent<CaravanWagon>().GetRandomActiveComponent());
     }
