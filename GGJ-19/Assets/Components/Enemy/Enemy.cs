@@ -9,6 +9,7 @@ public class Enemy : Character
 
     private void Start()
     {
+        this.hitPoints = m_enemyType.m_hitpoints;
     }
 
     public override void EventDied()
