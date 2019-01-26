@@ -1007,12 +1007,12 @@ PrefabInstance:
     - target: {fileID: 126430858894220388, guid: 9b73a82bae1512f4f9ab9bb5db2572cd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.19
+      value: -11.539916
       objectReference: {fileID: 0}
     - target: {fileID: 126430858894220388, guid: 9b73a82bae1512f4f9ab9bb5db2572cd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8529866
+      value: -0.06525457
       objectReference: {fileID: 0}
     - target: {fileID: 126430858894220388, guid: 9b73a82bae1512f4f9ab9bb5db2572cd,
         type: 3}
@@ -1022,22 +1022,22 @@ PrefabInstance:
     - target: {fileID: 126430858894220388, guid: 9b73a82bae1512f4f9ab9bb5db2572cd,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.42759067
       objectReference: {fileID: 0}
     - target: {fileID: 126430858894220388, guid: 9b73a82bae1512f4f9ab9bb5db2572cd,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0.5631751
       objectReference: {fileID: 0}
     - target: {fileID: 126430858894220388, guid: 9b73a82bae1512f4f9ab9bb5db2572cd,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.4275908
       objectReference: {fileID: 0}
     - target: {fileID: 126430858894220388, guid: 9b73a82bae1512f4f9ab9bb5db2572cd,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.7071068
+      value: -0.5631751
       objectReference: {fileID: 0}
     - target: {fileID: 126430858894220388, guid: 9b73a82bae1512f4f9ab9bb5db2572cd,
         type: 3}
@@ -1047,7 +1047,7 @@ PrefabInstance:
     - target: {fileID: 126430858894220388, guid: 9b73a82bae1512f4f9ab9bb5db2572cd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -74.415
       objectReference: {fileID: 0}
     - target: {fileID: 126430858894220388, guid: 9b73a82bae1512f4f9ab9bb5db2572cd,
         type: 3}
@@ -1071,5 +1071,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4188947535256215877, guid: 9b73a82bae1512f4f9ab9bb5db2572cd,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1388871574}
+    - target: {fileID: 4188947535256215877, guid: 9b73a82bae1512f4f9ab9bb5db2572cd,
+        type: 3}
+      propertyPath: m_enemyType
+      value: 
+      objectReference: {fileID: 11400000, guid: 42849286b075b8e45a90cafbb7a9cfca,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b73a82bae1512f4f9ab9bb5db2572cd, type: 3}

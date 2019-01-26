@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
+    public float maxHitPoint;
     public float hitPoints;
     public AttackType[] availableAttacks;
 

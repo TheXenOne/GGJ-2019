@@ -678,6 +678,7 @@ MonoBehaviour:
   characterController: {fileID: 0}
   enemyCapsuleCollider: {fileID: 0}
   isClimbing: 0
+  enemyComponent: {fileID: 0}
 --- !u!114 &4188947535256215877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,8 +691,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7eecb5a23c609a40b29471016ed78ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 0
+  maxHitPoint: 10
+  hitPoints: 10
   availableAttacks: []
+  m_enemyType: {fileID: 0}
+  slider: {fileID: 1265554987}
+  camera: {fileID: 0}
 --- !u!143 &2022791888
 CharacterController:
   m_ObjectHideFlags: 0

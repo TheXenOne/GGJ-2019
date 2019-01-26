@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -9,7 +8,6 @@ public class EnemyAI : MonoBehaviour
     public GameObject climbPoint;
     public GameObject headPoint;
     public GameObject feetPoint;
-    public Slider slider;
     public float climbSpeed;
     public float maxClimbDistance;
     public float accelMoveSpeed;
@@ -36,6 +34,9 @@ public class EnemyAI : MonoBehaviour
 
     [HideInInspector]
     static public GameObject player;
+
+    [HideInInspector]
+    public Enemy enemyComponent;
 
     void Awake()
     {
