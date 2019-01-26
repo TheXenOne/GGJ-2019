@@ -7,6 +7,7 @@ public class EnemyAI : MonoBehaviour
     public GameObject caravanToAttack;
     public GameObject climbPoint;
     public GameObject headPoint;
+    public GameObject feetPoint;
     public float climbSpeed;
     public float maxClimbDistance;
     public float accelMoveSpeed;

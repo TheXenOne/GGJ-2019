@@ -42,13 +42,13 @@ public class StateClimb : State<EnemyAI>
     private bool IsAtCaravanTop(EnemyAI a_entity)
     {
         bool drew = false;
-        RaycastHit headPointHit;
-        if (Physics.Raycast(a_entity.headPoint.transform.position, a_entity.headPoint.transform.TransformDirection(Vector3.forward), out headPointHit, a_entity.maxClimbDistance))
+        RaycastHit feetPointHit;
+        if (Physics.Raycast(a_entity.feetPoint.transform.position, a_entity.feetPoint.transform.TransformDirection(Vector3.forward), out feetPointHit, a_entity.maxClimbDistance))
         {
-            Debug.DrawRay(a_entity.headPoint.transform.position, a_entity.headPoint.transform.TransformDirection(Vector3.forward) * headPointHit.distance, Color.red);
+            Debug.DrawRay(a_entity.feetPoint.transform.position, a_entity.feetPoint.transform.TransformDirection(Vector3.forward) * feetPointHit.distance, Color.red);
             drew = true;
 
-            if (headPointHit.collider.gameObject.tag == "Caravan")
+            if (feetPointHit.collider.gameObject.tag == "Caravan")
             {
                 return false;
             }
@@ -91,8 +91,42 @@ public class StateClimb : State<EnemyAI>
                     {
                         a_entity.transform.rotation = Quaternion.LookRotation(-interpolatedNormal);
                     }
-                    
+
                     a_entity.transform.localPosition += a_entity.transform.up * a_entity.climbSpeed * Time.deltaTime;
+                }
+            }
+        }
+        else
+        {
+            RaycastHit feetPointHit;
+            if (Physics.Raycast(a_entity.feetPoint.transform.position, a_entity.feetPoint.transform.TransformDirection(Vector3.forward), out feetPointHit, a_entity.maxClimbDistance))
+            {
+                if (feetPointHit.collider.gameObject.tag == "Caravan")
+                {
+                    MeshCollider meshCollider = feetPointHit.collider as MeshCollider;
+                    if (meshCollider != null && meshCollider.sharedMesh != null)
+                    {
+                        Mesh mesh = meshCollider.sharedMesh;
+                        Vector3[] normals = mesh.normals;
+                        int[] triangles = mesh.triangles;
+
+                        Vector3 n0 = normals[triangles[feetPointHit.triangleIndex * 3 + 0]];
+                        Vector3 n1 = normals[triangles[feetPointHit.triangleIndex * 3 + 1]];
+                        Vector3 n2 = normals[triangles[feetPointHit.triangleIndex * 3 + 2]];
+                        Vector3 baryCenter = feetPointHit.barycentricCoordinate;
+                        Vector3 interpolatedNormal = n0 * baryCenter.x + n1 * baryCenter.y + n2 * baryCenter.z;
+                        interpolatedNormal.Normalize();
+                        interpolatedNormal = feetPointHit.transform.TransformDirection(interpolatedNormal);
+                        //float angle = Vector3.SignedAngle(a_entity.transform.forward, -interpolatedNormal, Vector3.up);
+                        //a_entity.transform.Rotate(new Vector3(-angle * Time.deltaTime, 0, 0));
+                        float angle = Vector3.SignedAngle(Vector3.up, -interpolatedNormal, Vector3.up);
+                        if (angle < (180 - 80))
+                        {
+                            a_entity.transform.rotation = Quaternion.LookRotation(-interpolatedNormal);
+                        }
+
+                        a_entity.transform.localPosition += a_entity.transform.up * a_entity.climbSpeed * Time.deltaTime;
+                    }
                 }
             }
         }
