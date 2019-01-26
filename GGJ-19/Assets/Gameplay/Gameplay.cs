@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Components;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,19 +8,23 @@ namespace Assets.Gameplay
     public class Gameplay : MonoBehaviour
     {
         public LoopState m_state;
-
-        public GameObject m_caravan;
+        public Caravan m_caravan;
+        public int m_battlesFought;
 
         public static Gameplay Instance;
-        public static GameObject Caravan => Instance.m_caravan;
+        public static Caravan Caravan => Instance.m_caravan;
+
+        void Awake()
+        {
+            Instance = this;
+        }
 
         // Start is called before the first frame update
         void Start()
         {
-            Instance = this;
-
             // Set initial state
             ChangeState(GetComponent<BreakState>());
+
             Player.Instance.RespawnRandom();
         }
 
