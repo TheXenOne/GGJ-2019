@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 10950.919, g: 14680.261, b: 21231.047, a: 1}
+  m_IndirectSpecularColor: {r: 10950.852, g: 14680.189, b: 21230.941, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1115,6 +1115,7 @@ GameObject:
   - component: {fileID: 1388871575}
   - component: {fileID: 1388871578}
   - component: {fileID: 1388871579}
+  - component: {fileID: 1388871580}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1314,6 +1315,25 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &1388871580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388871574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73aef89bb15aca74b93b85e585c3163c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivityX: 4
+  sensitivityY: 1
+  minY: 0
+  maxY: 50
+  distance: 10
+  invertRotationControl: 0
+  lookAt: {fileID: 1689150228}
 --- !u!1 &1574482906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,6 +1421,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!4 &1689150228 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1516686062075025633, guid: 395d5c2ae3fa83e46b900c58cd29399a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5753116}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2022528199
 GameObject:
   m_ObjectHideFlags: 0
