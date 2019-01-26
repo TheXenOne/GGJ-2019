@@ -103,7 +103,7 @@ public class EnemyAI : MonoBehaviour
 		}
 			else
 		{
-			if (velocity.y < (maxFallingSpeed - (2 * maxFallingSpeed)))
+			if (velocity.y > (maxFallingSpeed - (2 * maxFallingSpeed)))
 			{
 				velocity.y -= gravity * Time.deltaTime;
 			}
