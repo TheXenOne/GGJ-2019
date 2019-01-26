@@ -27,6 +27,7 @@ public class StateMachine<entity_type>
         m_HasGlobalState = false;
         m_StateStack = new Stack<State<entity_type>>();
         m_StateStack.Push(a_currentState);
+        a_currentState.Enter(a_owner);
     }
 
     public void UpdateStateMachine()
