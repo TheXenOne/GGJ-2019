@@ -25,7 +25,6 @@ public class EnemyAI : MonoBehaviour
 	public bool useGravity;
 	[HideInInspector]
 	public Vector3 velocity;
-
     [HideInInspector]
     public CharacterController characterController;
     [HideInInspector]
@@ -35,6 +34,9 @@ public class EnemyAI : MonoBehaviour
 
     [HideInInspector]
     static public GameObject player;
+
+    [HideInInspector]
+    public Enemy enemyComponent;
 
     void Awake()
     {

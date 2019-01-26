@@ -4,12 +4,13 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
+    public float maxHitPoint;
     public float hitPoints;
     public AttackType[] availableAttacks;
 
     public abstract void EventDied();
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         hitPoints -= damage;
 
