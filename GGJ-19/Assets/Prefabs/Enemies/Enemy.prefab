@@ -556,6 +556,7 @@ GameObject:
   - component: {fileID: 5484263399434705882}
   - component: {fileID: 8994313539368148953}
   - component: {fileID: 3752193675953492119}
+  - component: {fileID: 4188947535256215877}
   - component: {fileID: 2022791888}
   m_Layer: 0
   m_Name: Enemy
@@ -677,6 +678,20 @@ MonoBehaviour:
   characterController: {fileID: 0}
   enemyCapsuleCollider: {fileID: 0}
   isClimbing: 0
+--- !u!114 &4188947535256215877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810370371572630744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7eecb5a23c609a40b29471016ed78ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 0
+  availableAttacks: []
 --- !u!143 &2022791888
 CharacterController:
   m_ObjectHideFlags: 0
