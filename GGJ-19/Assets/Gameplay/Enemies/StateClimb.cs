@@ -70,7 +70,7 @@ public class StateClimb : State<EnemyAI>
     {
         if (!a_entity.isClimbing)
         {
-            a_entity.velocity = new Vector3(a_entity.velocity.x, a_entity.velocity.y + (a_entity.climbSpeed * Time.deltaTime), a_entity.velocity.z);
+            a_entity.velocity = new Vector3(a_entity.velocity.x, a_entity.velocity.y + (a_entity.climbSpeed * 60 * Time.deltaTime), a_entity.velocity.z);
             a_entity.isClimbing = true;
         }
     }
