@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 	private bool isDashing;
 	private float timeDashStarted;
 	private int currentHealth;
+	private Camera mainCamera;
 
 	private Vector2 dashDirection;
 
@@ -46,9 +47,19 @@ public class PlayerMovement : MonoBehaviour
     {
         CharacterController controller = GetComponentInParent<CharacterController>();
 
-		//TODO the direction of the movement should be translated by the camera
+		//Direction of the movement is translated by the camera. This is done the simple way, so it's not recognized by the character if it should walk slowly or not.
 		if (!isDashing)
 		{
+			Vector3 transformedAxesInput;
+			transformedAxesInput.x = axesInput.x;
+			transformedAxesInput.y = 0;
+			transformedAxesInput.z = axesInput.y;
+			
+			transformedAxesInput =  mainCamera.transform.rotation* transformedAxesInput;
+
+			axesInput.x = transformedAxesInput.x;
+			axesInput.y = transformedAxesInput.z;
+			axesInput.Normalize();
 			velocity.x = axesInput.x * movementSpeed;
 			velocity.z = axesInput.y * movementSpeed;
 
@@ -66,10 +77,22 @@ public class PlayerMovement : MonoBehaviour
 
 		if (controller.isGrounded && dashPressed && (!isDashing) && (Input.GetAxisRaw("Horizontal") != 0.0f || Input.GetAxisRaw("Vertical") != 0.0f))
 		{
-			//TODO dash direction directly corresponds to the direction of the stick in relation to the camera - not the direction.
-			isDashing = true;
+			// dash direction directly corresponds to the direction of the stick in relation to the camera - not the direction.
 			dashDirection.x = Input.GetAxisRaw("Horizontal");
 			dashDirection.y = Input.GetAxisRaw("Vertical");
+			Vector3 transformedAxesInput;
+			transformedAxesInput.x = dashDirection.x;
+			transformedAxesInput.y = 0;
+			transformedAxesInput.z = dashDirection.y;
+
+			transformedAxesInput = mainCamera.transform.rotation * transformedAxesInput;
+
+			dashDirection.x = transformedAxesInput.x;
+			dashDirection.y = transformedAxesInput.z;
+			dashDirection.Normalize();
+
+			isDashing = true;
+			
 			dashDirection.Normalize();
 			timeDashStarted = Time.time;
 		}
@@ -129,7 +152,8 @@ public class PlayerMovement : MonoBehaviour
 	void Start()
     {
         controllerConnected = Input.GetJoystickNames().Length > 0;
-    }
+		mainCamera = Camera.main;
+	}
 
     // Update is called once per frame
     void Update()
