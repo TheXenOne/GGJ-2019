@@ -6,7 +6,6 @@ using Assets.Components;
 
 public class Player : MonoBehaviour
 {
-    public Gameplay gameplay;
     public static Player Instance;
     
     void Awake()
@@ -23,7 +22,7 @@ public class Player : MonoBehaviour
 
     public void RespawnRandom()
     {
-        var wagon = gameplay.m_caravan.GetComponent<Caravan>().GetRandomWagon();
+        var wagon = Gameplay.Caravan.GetRandomWagon();
 
         Respawn(wagon.GetComponent<CaravanWagon>().GetRandomActiveComponent());
     }

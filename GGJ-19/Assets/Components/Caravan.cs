@@ -28,6 +28,8 @@ namespace Assets.Components
         List<GameObject> m_wagonObjects = new List<GameObject>();
         List<Hex> m_hexes = new List<Hex>();
 
+        public List<GameObject> Wagons => m_wagonObjects;
+
         public void Awake()
         {
             Debug.Log("Initial caravan creation");
