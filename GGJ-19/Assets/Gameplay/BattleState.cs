@@ -11,14 +11,13 @@ namespace Assets.Gameplay
     /// <summary>
     /// The battle state
     /// </summary>
-    public class BattleState : ILoopState
+    public class BattleState : LoopState
     {
-        public void Enter()
+        override public void Enter()
         {
-
         }
 
-        public void Exit()
+        override public void Exit()
         {
         }
     }
