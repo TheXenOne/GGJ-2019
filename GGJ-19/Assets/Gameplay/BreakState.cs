@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Assets.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Gameplay
 {
@@ -11,6 +13,8 @@ namespace Assets.Gameplay
     /// </summary>
     public class BreakState : ILoopState
     {
+        List<GameObject> wagons = new List<GameObject>();
+
         public void Enter()
         {
         }

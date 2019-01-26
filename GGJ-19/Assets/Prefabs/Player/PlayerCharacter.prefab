@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8926804325291046369}
   m_Layer: 0
   m_Name: PlayerCharacter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +109,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c6b5f8761ee4904c9b33577770acf6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 40
-  jumpStrength: 60
-  gravity: 10
+  movementSpeed: 30
+  jumpStrength: 80
+  gravity: 250
+  dashSpeed: 50
+  dashDuration: 0.2
+  maxFallingSpeed: 50
   movementEnabled: 1
+  maxHealth: 10
+  knockbackStrength: 50
+  disableGravity: 1

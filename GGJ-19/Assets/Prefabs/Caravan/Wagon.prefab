@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f816abe57156dd341b63ef9ce813a14f, type: 3}
+  - {fileID: 2100000, guid: df399fcb129384241bffe41c9515ac22, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,10 +123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d9f74697589b24f9a4e19e8fcd2a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wagonBase: {fileID: 4300000, guid: f816abe57156dd341b63ef9ce813a14f, type: 3}
-  wagonUpgrades:
-  - {fileID: 4300002, guid: f816abe57156dd341b63ef9ce813a14f, type: 3}
-  - {fileID: 4300004, guid: f816abe57156dd341b63ef9ce813a14f, type: 3}
+  m_wagonBase: {fileID: 0}
+  m_wagonUpgrades: []
+  m_fleetPositionX: 0
+  m_fleetPositionZ: 0
 --- !u!1 &8426289412983450005
 GameObject:
   m_ObjectHideFlags: 0
