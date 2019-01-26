@@ -12,9 +12,10 @@ public class PlayerMovement : MonoBehaviour
 	public float dashDuration;
 	public float maxFallingSpeed;
 	public bool movementEnabled;
-	public int maxHealth;
 	public float knockbackStrength;
 	public bool disableGravity;
+
+    public float attackReach;
 
 	//TODO Move these enemy variables to the enemy file!
 	bool isKnockedBack;
@@ -23,10 +24,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 axesInput;
     private bool jumpPressed;
 	private bool dashPressed;
+    private bool primaryAttackPressed;
+    private bool secondaryAttackPressed;
     private bool controllerConnected;
 	private bool isDashing;
 	private float timeDashStarted;
-	private int currentHealth;
 	private Camera mainCamera;
 
 	private Vector2 dashDirection;
@@ -39,7 +41,10 @@ public class PlayerMovement : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         jumpPressed = Input.GetAxis("Jump") > 0.0f;
-		dashPressed = Input.GetAxis("Fire1") > 0.0f;
+		dashPressed = Input.GetAxis("Fire3") > 0.0f;
+        primaryAttackPressed = Input.GetAxisRaw("Fire1") > 0.0f;
+        secondaryAttackPressed = Input.GetAxisRaw("Fire2") > 0.0f;
+
         axesInput = new Vector2(horizontal, vertical);
     }
 
@@ -118,10 +123,54 @@ public class PlayerMovement : MonoBehaviour
 			velocity.y = 0;
 		}
         controller.Move(velocity * Time.deltaTime);
+
+        if(primaryAttackPressed)
+        {
+            PerformAttack(0);
+        }
+
+        if (secondaryAttackPressed)
+        {
+            PerformAttack(1);
+        }
+    }
+
+    void PerformAttack(int attackID)
+    {
+        Ray ray = new Ray(
+            transform.position
+            , mainCamera.transform.forward
+        );
+        RaycastHit hitInfo;
+        bool hit = Physics.Raycast(
+            ray
+            , out hitInfo
+            , attackReach
+        );
+        Character hitEnemy = null;
+
+
+        if (hit)
+        {
+            if (hitInfo.collider.gameObject.tag == "Enemy")
+            {
+                Character charScript = hitInfo.collider.gameObject.GetComponent<Character>();
+
+                hitEnemy = charScript;
+                Debug.DrawRay(ray.origin, ray.direction * attackReach, Color.green);
+            }
+        }
+        else
+        {
+            Debug.DrawRay(ray.origin, ray.direction * attackReach, Color.red);
+        }
+
+        gameObject.GetComponent<Player>().Attack(hitEnemy, attackID);
+
     }
 
 
-	private void OnControllerColliderHit(ControllerColliderHit hit)
+    private void OnControllerColliderHit(ControllerColliderHit hit)
 	{
 		
 		//TODO check if it collides with enemy and knock them back
