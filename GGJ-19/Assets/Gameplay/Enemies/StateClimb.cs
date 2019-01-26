@@ -22,7 +22,7 @@ public class StateClimb : State<EnemyAI>
     {
         Debug.Log("Enemy entered StateClimb.");
         a_entity.isClimbing = false;
-        a_entity.enemyRigidbody.useGravity = false;
+        a_entity.useGravity = false;
     }
 
     public override void Execute(EnemyAI a_entity)
@@ -70,14 +70,14 @@ public class StateClimb : State<EnemyAI>
     {
         if (!a_entity.isClimbing)
         {
-            a_entity.enemyRigidbody.velocity = new Vector3(a_entity.enemyRigidbody.velocity.x, a_entity.enemyRigidbody.velocity.y + a_entity.climbSpeed, a_entity.enemyRigidbody.velocity.z);
+            a_entity.velocity = new Vector3(a_entity.velocity.x, a_entity.velocity.y + (a_entity.climbSpeed * Time.deltaTime), a_entity.velocity.z);
             a_entity.isClimbing = true;
         }
     }
 
     private void StopClimbing(EnemyAI a_entity)
     {
-        a_entity.enemyRigidbody.velocity = new Vector3(a_entity.enemyRigidbody.velocity.x, a_entity.enemyRigidbody.velocity.y - a_entity.climbSpeed, a_entity.enemyRigidbody.velocity.z);
+        a_entity.velocity = new Vector3(a_entity.velocity.x, a_entity.velocity.y - (a_entity.climbSpeed *Time.deltaTime), a_entity.velocity.z);
     }
 
     public override void Exit(EnemyAI a_entity)

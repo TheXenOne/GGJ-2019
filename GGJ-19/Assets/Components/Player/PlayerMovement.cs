@@ -104,19 +104,22 @@ public class PlayerMovement : MonoBehaviour
 		//TODO check if it collides with enemy and knock them back
 		if (isDashing)
 		{
+			int a;
+			a = 7;
 			if (hit.gameObject.tag == "Enemy")
 			{
 				Vector3 knockbackDirection = hit.transform.position - transform.position;
 				knockbackDirection.y = 0.0f;
 				knockbackDirection.Normalize();
-				//knockbackStrength * knockbackDirection
-		
+				hit.gameObject.GetComponent<EnemyAI>().velocity = knockbackStrength * knockbackDirection;
+				hit.gameObject.GetComponent<EnemyAI>().isKnockedBack = true;
 
-				velocity.x = 0.0f;
+
+							velocity.x = 0.0f;
 				velocity.y = 0.0f;
 				velocity.z = 0.0f;
 				isDashing = false;
-				//Physics.IgnoreCollision(GetComponent<CharacterController>(), hit.gameObject.GetComponent<Collider>(), true);
+				Physics.IgnoreCollision(GetComponent<CharacterController>(), hit.gameObject.GetComponent<CharacterController>(), true);
 				
 			}
 		}

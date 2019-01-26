@@ -21,8 +21,9 @@ public class StateAttacking : State<EnemyAI>
     public override void Enter(EnemyAI a_entity)
     {
         Debug.Log("Enemy entered StateAttacking.");
-        a_entity.enemyRigidbody.useGravity = true;
-        a_entity.enemyRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        a_entity.useGravity = true;
+		//TODO Check if I didn't delete this code unnecessarily
+		//a_entity.enemyRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
     }
 
     public override void Execute(EnemyAI a_entity)
@@ -32,7 +33,7 @@ public class StateAttacking : State<EnemyAI>
 
         if (distToPlayer.magnitude > a_entity.attackRange)
         {
-            a_entity.enemyRigidbody.AddForce(distToPlayer.normalized * a_entity.accelMoveSpeed * Time.deltaTime);
+            a_entity.velocity += distToPlayer.normalized * a_entity.accelMoveSpeed * Time.deltaTime;
 
             float angle = Vector3.SignedAngle(a_entity.transform.forward, distToPlayer.normalized, Vector3.up);
             if (Mathf.Abs(angle) > 3)
