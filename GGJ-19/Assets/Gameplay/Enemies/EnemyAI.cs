@@ -7,6 +7,7 @@ public class EnemyAI : MonoBehaviour
     public GameObject caravanToAttack;
     public GameObject climbPoint;
     public GameObject headPoint;
+    public GameObject feetPoint;
     public float climbSpeed;
     public float maxClimbDistance;
     public float accelMoveSpeed;
@@ -25,10 +26,8 @@ public class EnemyAI : MonoBehaviour
 	[HideInInspector]
 	public Vector3 velocity;
 
-	CharacterController characterController;
-
-    //[HideInInspector]
-    //public Rigidbody enemyRigidbody;
+    [HideInInspector]
+    public CharacterController characterController;
     [HideInInspector]
     public CapsuleCollider enemyCapsuleCollider;
     [HideInInspector]
@@ -40,8 +39,8 @@ public class EnemyAI : MonoBehaviour
     void Awake()
     {
 		isKnockedBack = false;
-       // enemyRigidbody = GetComponent<Rigidbody>();
         enemyCapsuleCollider = GetComponent<CapsuleCollider>();
+		characterController = GetComponent<CharacterController>();
 
         if (player == null)
         {
@@ -49,7 +48,6 @@ public class EnemyAI : MonoBehaviour
         }
 
         enemyStateMachine = new StateMachine<EnemyAI>(this, StateClimb.Instance);
-		characterController = GetComponent<CharacterController>();
     }
 
     void Update()
@@ -101,7 +99,7 @@ public class EnemyAI : MonoBehaviour
 			velocity.z = temp.y;
 			characterController.Move(velocity * Time.deltaTime);
 		}
-			else
+			else if (useGravity)
 		{
 			if (velocity.y > (maxFallingSpeed - (2 * maxFallingSpeed)))
 			{

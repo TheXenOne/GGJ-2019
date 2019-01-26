@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &804238579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 804238580}
+  m_Layer: 0
+  m_Name: FeetPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &804238580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804238579}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.13, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 126430858894220388}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1926582828004665977
 GameObject:
   m_ObjectHideFlags: 0
@@ -41,7 +71,6 @@ GameObject:
   - component: {fileID: 8318686957490280378}
   - component: {fileID: 5806458088014154732}
   - component: {fileID: 506498188516194806}
-  - component: {fileID: 5257207993907163208}
   m_Layer: 0
   m_Name: ArmR
   m_TagString: Untagged
@@ -108,20 +137,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &5257207993907163208
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2111335122606716916}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3810370371572630744
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +177,7 @@ Transform:
   - {fileID: 8233370541704744066}
   - {fileID: 7391094267265626800}
   - {fileID: 5524834027030627025}
+  - {fileID: 804238580}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
@@ -239,7 +255,8 @@ MonoBehaviour:
   caravanToAttack: {fileID: 0}
   climbPoint: {fileID: 1926582828004665977}
   headPoint: {fileID: 8308923292337820548}
-  climbSpeed: 3
+  feetPoint: {fileID: 804238579}
+  climbSpeed: 1
   maxClimbDistance: 3
   accelMoveSpeed: 400
   moveSpeedMax: 20
@@ -251,6 +268,7 @@ MonoBehaviour:
   isKnockedBack: 0
   useGravity: 0
   velocity: {x: 0, y: 0, z: 0}
+  characterController: {fileID: 0}
   enemyCapsuleCollider: {fileID: 0}
   isClimbing: 0
 --- !u!114 &4188947535256215877
@@ -296,7 +314,6 @@ GameObject:
   - component: {fileID: 9176089272414816064}
   - component: {fileID: 5075704606714677489}
   - component: {fileID: 3119088535543372945}
-  - component: {fileID: 1877722820264332292}
   m_Layer: 0
   m_Name: LegL
   m_TagString: Untagged
@@ -363,20 +380,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1877722820264332292
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3971775128485357107}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4249233835964266163
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +391,6 @@ GameObject:
   - component: {fileID: 8233370541704744066}
   - component: {fileID: 5910863887621288574}
   - component: {fileID: 7280079146895284054}
-  - component: {fileID: 8205096020726156572}
   m_Layer: 0
   m_Name: LegR
   m_TagString: Untagged
@@ -455,20 +457,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &8205096020726156572
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4249233835964266163}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4472795391858479830
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +468,6 @@ GameObject:
   - component: {fileID: 901946619087275833}
   - component: {fileID: 8631865643256679452}
   - component: {fileID: 703056677147310684}
-  - component: {fileID: 710795799928793672}
   m_Layer: 0
   m_Name: ArmL
   m_TagString: Untagged
@@ -547,20 +534,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &710795799928793672
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4472795391858479830}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5724789534178398417
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,7 +545,6 @@ GameObject:
   - component: {fileID: 8928213020463915580}
   - component: {fileID: 6963497469773484432}
   - component: {fileID: 4078598833638201386}
-  - component: {fileID: 6776465625727434581}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -639,19 +611,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &6776465625727434581
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5724789534178398417}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8308923292337820548
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,7 +635,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8308923292337820548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.6, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0.594, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 126430858894220388}
