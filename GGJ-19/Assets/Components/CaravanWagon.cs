@@ -6,22 +6,23 @@ namespace Assets.Components
 {
     public class CaravanWagon : MonoBehaviour
     {
-        public Mesh m_wagonBase;
-        public Mesh[] m_wagonUpgrades;
+        public GameObject m_wagonBase;
+        public GameObject[] m_wagonUpgrades;
 
         public int m_fleetPositionX;
         public int m_fleetPositionZ;
 
-        // Start is called before the first frame update
-        void Start()
-        {
+        private List<GameObject> m_activeComponents = new List<GameObject>();
 
+        // Start is called before the first frame update
+        void Awake()
+        {
+            m_activeComponents.Add(m_wagonBase);
         }
 
-        // Update is called once per frame
-        void Update()
+        public GameObject GetRandomActiveComponent()
         {
-
+            return m_activeComponents[Random.Range(0, m_activeComponents.Count - 1)];
         }
     }
 }

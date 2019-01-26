@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4504388002663245294}
   - component: {fileID: 4453991667618499882}
   - component: {fileID: 7219652094935202665}
+  - component: {fileID: 3231849432436604243}
   m_Layer: 0
   m_Name: Bace
   m_TagString: Untagged
@@ -77,6 +78,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3231849432436604243
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177691526335921671}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7999997, y: 1.9999999, z: 2.2999997}
+  m_Center: {x: 7.107426e-16, y: 0.99995023, z: -0.000000119209275}
 --- !u!1 &3644977442773015793
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,10 +137,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d9f74697589b24f9a4e19e8fcd2a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wagonBase: {fileID: 4300000, guid: f816abe57156dd341b63ef9ce813a14f, type: 3}
-  wagonUpgrades:
-  - {fileID: 4300002, guid: f816abe57156dd341b63ef9ce813a14f, type: 3}
-  - {fileID: 4300004, guid: f816abe57156dd341b63ef9ce813a14f, type: 3}
+  m_wagonBase: {fileID: 1177691526335921671}
+  m_wagonUpgrades:
+  - {fileID: 8865033475779617965}
+  - {fileID: 8426289412983450005}
+  m_fleetPositionX: 0
+  m_fleetPositionZ: 0
 --- !u!1 &8426289412983450005
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,6 +154,7 @@ GameObject:
   - component: {fileID: 2293358602773026259}
   - component: {fileID: 7590416343323742220}
   - component: {fileID: 6042475048093911407}
+  - component: {fileID: 4909126917799512818}
   m_Layer: 0
   m_Name: Upgrade_2
   m_TagString: Untagged
@@ -204,6 +221,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4909126917799512818
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8426289412983450005}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7999997, y: 2, z: 2.5999997}
+  m_Center: {x: 7.111637e-16, y: 1.0005426, z: 0.1499999}
 --- !u!1 &8865033475779617965
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,6 +245,7 @@ GameObject:
   - component: {fileID: 4850220373151257992}
   - component: {fileID: 1451921938245460586}
   - component: {fileID: 5930611987555433658}
+  - component: {fileID: 8278779414063277760}
   m_Layer: 0
   m_Name: Upgrade_1
   m_TagString: Untagged
@@ -281,3 +312,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8278779414063277760
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8865033475779617965}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 1.5000004, z: 1.8000004}
+  m_Center: {x: 0, y: 0, z: 0.9000002}
