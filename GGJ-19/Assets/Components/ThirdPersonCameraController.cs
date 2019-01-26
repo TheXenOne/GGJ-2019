@@ -9,7 +9,7 @@ public class ThirdPersonCameraController : MonoBehaviour
     public float minY = 0.0f;
     public float maxY = 50.0f;
     public float distance = 10.0f;
-    //public bool invertRotationControl = false;
+    public bool invertRotationControl = false;
 
     public Transform lookAt;
 
@@ -17,8 +17,11 @@ public class ThirdPersonCameraController : MonoBehaviour
     
     void Update()
     {
+        float yMult = invertRotationControl ? 1.0f : -1.0f;
+ 
         mouseInput.x += Input.GetAxis("Mouse X") * sensitivityX;
-        mouseInput.y += Input.GetAxis("Mouse Y") * sensitivityY;
+        mouseInput.y += Input.GetAxis("Mouse Y") * sensitivityY * yMult;
+        
         mouseInput.y = Mathf.Clamp(mouseInput.y, minY, maxY);       
     }
 
