@@ -8,9 +8,16 @@ namespace Assets.Gameplay
     {
         ILoopState state;
 
+        public GameObject caravan;
+
+        private static Gameplay Instance;
+        public static GameObject Caravan => Instance.caravan;
+
         // Start is called before the first frame update
         void Start()
         {
+            Instance = this;
+
             ChangeState(new BreakState());
         }
 
