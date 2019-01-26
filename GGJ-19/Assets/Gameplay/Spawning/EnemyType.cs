@@ -13,5 +13,6 @@ namespace Assets.Gameplay.Spawning
         public GameObject m_prefab;
         public int m_difficulty;
         public int m_cost;
+        public int m_hitpoints;
     }
 }

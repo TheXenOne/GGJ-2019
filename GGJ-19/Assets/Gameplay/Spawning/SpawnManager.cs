@@ -33,6 +33,8 @@ namespace Assets.Gameplay.Spawning
                 var wagon = wagons[Random.Range(0, wagons.Count - 1)];
                 var created = Instantiate(spawn.m_prefab, new Vector3(wagon.transform.position.x, m_spawnHeight, wagon.transform.position.z), Quaternion.identity);
 
+                created.GetComponent<Enemy>().m_enemyType = spawn;
+
                 Debug.Log($"Spawned enemy of type {created.name}");
 
                 f(created);
