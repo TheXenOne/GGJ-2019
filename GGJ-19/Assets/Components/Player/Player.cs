@@ -4,8 +4,9 @@ using UnityEngine;
 using Assets.Gameplay;
 using Assets.Components;
 
-public class Player : MonoBehaviour
+public class Player : Character
 {
+    public Gameplay gameplay;
     public static Player Instance;
     
     void Awake()
@@ -22,8 +23,15 @@ public class Player : MonoBehaviour
 
     public void RespawnRandom()
     {
-        var wagon = Gameplay.Caravan.GetRandomWagon();
+        var wagon = gameplay.m_caravan.GetComponent<Caravan>().GetRandomWagon();
 
         Respawn(wagon.GetComponent<CaravanWagon>().GetRandomActiveComponent());
+    }
+
+    public override void EventDied()
+    {
+        Debug.Log("Player died! Respawning...");
+        RespawnRandom();
+        
     }
 }
