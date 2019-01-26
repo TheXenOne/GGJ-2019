@@ -1473,8 +1473,8 @@ MonoBehaviour:
   m_wagons: 10
   m_people: 0
   m_currency: 0
-  m_fleetScaleX: 8
-  m_fleetScaleZ: 8
+  m_fleetScaleX: 20
+  m_fleetScaleZ: 12
   m_wagon: {fileID: 3644977442773015793, guid: 2a3d325c915e0c94c88dbba23f0dd644, type: 3}
 --- !u!1 &2147027618
 GameObject:
