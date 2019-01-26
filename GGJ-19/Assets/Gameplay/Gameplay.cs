@@ -24,6 +24,7 @@ namespace Assets.Gameplay
         {
             // Set initial state
             ChangeState(GetComponent<BreakState>());
+
             Player.Instance.RespawnRandom();
         }
 
