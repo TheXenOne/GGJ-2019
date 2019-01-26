@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
-    public float movementSpeed = 100.0f;
-    public float jumpStrength = 100.0f;
+    public float movementSpeed = 40.0f;
+    public float jumpStrength = 60.0f;
     public float gravity = 10.0f;
     public bool movementEnabled = true;
 
