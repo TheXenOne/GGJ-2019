@@ -46,6 +46,7 @@ namespace Assets.Gameplay
         override public void Exit()
         {
             Gameplay.Caravan.m_currency += m_killScore;
+            Gameplay.Instance.m_battlesFought++;
 
             foreach (var enemy in m_enemies)
             {
