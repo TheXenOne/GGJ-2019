@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b8b89e4d772eb54496457fb263658a2, type: 3}
   m_Name: Enemy
   m_EditorClassIdentifier: Assembly-CSharp:Assets.Gameplay.Spawning:EnemyType
-  m_prefab: {fileID: 1274784044950408429, guid: 9b73a82bae1512f4f9ab9bb5db2572cd,
+  m_prefab: {fileID: 3810370371572630744, guid: 9b73a82bae1512f4f9ab9bb5db2572cd,
     type: 3}
   m_difficulty: 1
   m_cost: 1
