@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Gameplay
 {
-    public interface ILoopState
+    public abstract class LoopState : MonoBehaviour
     {
-        void Enter();
-        void Exit();
+        public abstract void Enter();
+        public abstract void Exit();
     }
 }

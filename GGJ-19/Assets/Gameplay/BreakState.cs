@@ -11,16 +11,29 @@ namespace Assets.Gameplay
     /// <summary>
     /// The "idle" state between battles
     /// </summary>
-    public class BreakState : ILoopState
+    public class BreakState : LoopState
     {
-        List<GameObject> wagons = new List<GameObject>();
+        public int m_secondsToSkip = 30;
 
-        public void Enter()
+        int m_skipTime;
+
+        public override void Enter()
         {
+            m_skipTime = (int)Time.time + m_secondsToSkip;
         }
 
-        public void Exit()
+        public void Update()
         {
+            if (Time.time > m_skipTime)
+            {
+                Gameplay.Instance.ChangeStateWithTravelTo<BattleState>();
+                return;
+            }
+        }
+
+        public override void Exit()
+        {
+            // TODO
         }
     }
 }

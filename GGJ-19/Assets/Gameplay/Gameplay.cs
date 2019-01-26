@@ -6,41 +6,52 @@ namespace Assets.Gameplay
 {
     public class Gameplay : MonoBehaviour
     {
-        ILoopState state;
+        public LoopState m_state;
 
-        public GameObject caravan;
+        public GameObject m_caravan;
 
-        private static Gameplay Instance;
-        public static GameObject Caravan => Instance.caravan;
+        public static Gameplay Instance;
+        public static GameObject Caravan => Instance.m_caravan;
 
         // Start is called before the first frame update
         void Start()
         {
             Instance = this;
 
-            ChangeState(new BreakState());
+            // Set initial state
+            ChangeState(GetComponent<BreakState>());
         }
 
         // Update is called once per frame
         void Update()
         {
-
         }
 
-        void ChangeState(ILoopState nextState)
+        public void ChangeStateWithTravelTo<Type>() where Type: LoopState
         {
-            if (state != null)
+            var travel = GetComponent<TravelState>();
+            var next = GetComponent<Type>();
+            travel.m_nextState = next;
+
+            ChangeState(travel);
+        }
+
+        public void ChangeState(LoopState nextState)
+        {
+            if (m_state != null)
             {
-                state.Exit();
+                m_state.enabled = false;
+                m_state.Exit();
             }
 
-            Debug.Log("Transitioning from game state " + ((state != null) ? state.ToString() : "(none)") +
-                " to " + ((nextState != null) ? nextState.ToString() : "(none)"));
-            state = nextState;
+            Debug.Log("Transitioning from game state " + ((m_state != null) ? m_state.GetType().Name : "(none)") +
+                " to " + ((nextState != null) ? nextState.GetType().Name : "(none)"));
+            m_state = nextState;
 
-            if (state != null)
+            if (m_state)
             {
-                state.Enter();
+                m_state.Enter();
+                m_state.enabled = true;
             }
         }
     }

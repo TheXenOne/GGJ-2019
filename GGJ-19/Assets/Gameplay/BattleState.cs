@@ -11,15 +11,29 @@ namespace Assets.Gameplay
     /// <summary>
     /// The battle state
     /// </summary>
-    public class BattleState : ILoopState
+    public class BattleState : LoopState
     {
-        public void Enter()
-        {
+        List<GameObject> m_enemies = new List<GameObject>();
 
+        public override void Enter()
+        {
+            // TODO: Spawn enemies
         }
 
-        public void Exit()
+        public void Update()
         {
+            //m_enemies.RemoveAll(e => e.hitpoints <= 0);
+
+            if (m_enemies.Count == 0)
+            {
+                // All enemies are dead, transition to break
+                Gameplay.Instance.ChangeStateWithTravelTo<BreakState>();
+            }
+        }
+
+        public override void Exit()
+        {
+            // Cleanup corpses, gore, etc
         }
     }
 }
