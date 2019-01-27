@@ -19,6 +19,7 @@ namespace Assets.Gameplay
 
         public override void Enter()
         {
+            BGMManager.Instance.PlayFightMusic();
             int spawnScore = Gameplay.Instance.m_battlesFought * 2 + 3;
             var spawnManager = Gameplay.Instance.GetComponent<SpawnManager>();
 
