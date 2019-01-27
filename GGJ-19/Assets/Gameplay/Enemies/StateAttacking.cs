@@ -30,7 +30,7 @@ public class StateAttacking : State<EnemyAI>
 
     public override void Execute(EnemyAI a_entity)
     {
-        Vector3 distToPlayer = EnemyAI.player.transform.position - a_entity.transform.position;
+        Vector3 distToPlayer = EnemyAI.playerObject.transform.position - a_entity.transform.position;
         Color color = Color.green;
 
         if (a_entity.caravanToAttack.containsPlayer)
@@ -46,6 +46,19 @@ public class StateAttacking : State<EnemyAI>
                 a_entity.velocity += distToPlayer.normalized * a_entity.accelMoveSpeed * Time.deltaTime;
 
                 color = Color.red;
+            }
+            else
+            {
+                if (a_entity.attackCooldownCurrent <= 0.01f)
+                {
+                    a_entity.attackCooldownCurrent = a_entity.attackCooldown;
+                    a_entity.enemyCharacter.Attack(EnemyAI.player, 0);
+                }
+            }
+
+            if (a_entity.attackCooldownCurrent > 0)
+            {
+                a_entity.attackCooldownCurrent -= Time.deltaTime;
             }
 
             float angle = Vector3.SignedAngle(a_entity.transform.forward, distToPlayer.normalized, Vector3.up);

@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour
     public float moveSpeedMax;
     public float attackRange;
     public float turnSpeed;
+    public float attackCooldown;
     public StateMachine<EnemyAI> enemyStateMachine;
 
 	public float deceleration;
@@ -32,22 +33,41 @@ public class EnemyAI : MonoBehaviour
     public CapsuleCollider enemyCapsuleCollider;
     [HideInInspector]
     public bool isClimbing;
-    
     [HideInInspector]
-    static public GameObject player;
+    public float attackCooldownCurrent;
+    [HideInInspector]
+    public Enemy enemyCharacter;
+
+    [HideInInspector]
+    static public GameObject playerObject;
+    [HideInInspector]
+    static public Player player;
 
     [HideInInspector]
     public Enemy enemyComponent;
 
     void Awake()
     {
+        if (attackCooldown == 0)
+        {
+            attackCooldown = 1.5f;
+        }
+
+        attackCooldownCurrent = 0;
+
+        enemyCharacter = GetComponent<Enemy>();
+
 		isKnockedBack = false;
         enemyCapsuleCollider = GetComponent<CapsuleCollider>();
 		characterController = GetComponent<CharacterController>();
 
-        if (player == null)
+        if (playerObject == null)
         {
-            player = FindObjectOfType<PlayerMovement>().gameObject;
+            playerObject = FindObjectOfType<PlayerMovement>().gameObject;
+            if (playerObject != null)
+            {
+                player = playerObject.GetComponent<Player>();
+            }
         }
 
         enemyStateMachine = new StateMachine<EnemyAI>(this, StateClimb.Instance);

@@ -45,7 +45,7 @@ public class StatePullup : State<EnemyAI>
 
     public override void Exit(EnemyAI a_entity)
     {
-        Vector3 playerPos = EnemyAI.player.transform.position;
+        Vector3 playerPos = EnemyAI.playerObject.transform.position;
         Vector3 enemyPos = a_entity.transform.position;
         enemyPos.y = playerPos.y;
         a_entity.transform.rotation = Quaternion.LookRotation(-(enemyPos - playerPos).normalized, Vector3.up);
