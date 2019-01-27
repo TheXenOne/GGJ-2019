@@ -15,6 +15,9 @@ public class Player : Character
     {
         base.Awake();
 
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;   // keep confined to center of screen
+
         Instance = this;
     }
 
