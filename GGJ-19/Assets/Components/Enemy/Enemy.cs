@@ -18,8 +18,10 @@ public class Enemy : Character
         slider.value = hitPoints / maxHitPoint;
     }
 
-    private void Update()
+    private new void Update()
     {
+        base.Update();
+
         slider.transform.rotation = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
     }
 

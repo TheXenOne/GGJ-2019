@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Gameplay;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,14 @@ public abstract class Character : MonoBehaviour
     protected void Awake()
     {
         hitPoints = maxHitPoint;
+    }
+
+    public void Update()
+    {
+        if (transform.position.y < Gameplay.Instance.m_bottom)
+        {
+            TakeDamage(1000);
+        }
     }
 
     public abstract void EventDied();

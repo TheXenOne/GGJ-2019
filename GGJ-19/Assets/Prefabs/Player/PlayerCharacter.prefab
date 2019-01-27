@@ -79,7 +79,7 @@ MonoBehaviour:
   dashSpeed: 50
   dashDuration: 0.2
   maxFallingSpeed: 50
-  movementEnabled: 0
+  movementEnabled: 1
   knockbackStrength: 50
   disableGravity: 0
   attackReach: 5
