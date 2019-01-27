@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool movementEnabled;
 	public float knockbackStrength;
 	public bool disableGravity;
+    public float attackSphereWidth = 1.0f;
 
     public float attackReach;
 
@@ -30,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
 	private bool isDashing;
 	private float timeDashStarted;
 	private Camera mainCamera;
-	private Animator animator;
 
 	private Vector2 dashDirection;
 
@@ -38,8 +38,8 @@ public class PlayerMovement : MonoBehaviour
 
     void ProcessInput()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
         jumpPressed = Input.GetAxis("Jump") > 0.0f;
 		dashPressed = Input.GetAxis("Fire3") > 0.0f;
@@ -52,14 +52,6 @@ public class PlayerMovement : MonoBehaviour
     void UpdateMovement()
     {
         CharacterController controller = GetComponentInParent<CharacterController>();
-		if (controller.isGrounded)
-		{
-			animator.SetBool("isOnGround", true);
-		}
-		else
-		{
-			animator.SetBool("isOnGround", false);
-		}
 
 		//Direction of the movement is translated by the camera. This is done the simple way, so it's not recognized by the character if it should walk slowly or not.
 		if (!isDashing)
@@ -68,16 +60,6 @@ public class PlayerMovement : MonoBehaviour
 			transformedAxesInput.x = axesInput.x;
 			transformedAxesInput.y = 0;
 			transformedAxesInput.z = axesInput.y;
-
-			if(axesInput.magnitude > 0.05f)
-			{
-				animator.SetBool("isMovingHorizontally", true);
-			}
-			else
-			{
-				animator.SetBool("isMovingHorizontally", false);
-				
-			}
 			
 			transformedAxesInput =  mainCamera.transform.rotation* transformedAxesInput;
 
@@ -116,7 +98,6 @@ public class PlayerMovement : MonoBehaviour
 			dashDirection.Normalize();
 
 			isDashing = true;
-			animator.SetBool("isDashing", true);
 			
 			dashDirection.Normalize();
 			timeDashStarted = Time.time;
@@ -127,23 +108,25 @@ public class PlayerMovement : MonoBehaviour
 			velocity.x = dashDirection.x* dashSpeed;
 			velocity.z = dashDirection.y* dashSpeed;
 			velocity.y = 0.0f;
-			
 
-			if ((Time.time - timeDashStarted) > dashDuration)
-			{
-				isDashing = false;
-				animator.SetBool("isDashing", false);
-			}
 
-			
-			
+            if ((Time.time - timeDashStarted) > dashDuration)
+            {
+                isDashing = false;
+            }
 		}
 
 		if(disableGravity)
 		{
 			velocity.y = 0;
 		}
+
         controller.Move(velocity * Time.deltaTime);
+
+        if (velocity.x != 0.0f || velocity.z != 0.0f)
+        {
+            controller.transform.rotation = Quaternion.Euler(0.0f, mainCamera.transform.rotation.eulerAngles.y, 0.0f);
+        }
 
         if(primaryAttackPressed)
         {
@@ -158,18 +141,18 @@ public class PlayerMovement : MonoBehaviour
 
     void PerformAttack(int attackID)
     {
-        Ray ray = new Ray(
-            transform.position
-            , mainCamera.transform.forward
-        );
         RaycastHit hitInfo;
-        bool hit = Physics.Raycast(
-            ray
-            , out hitInfo
-            , attackReach
-        );
-        Character hitEnemy = null;
+        Vector3 direction = mainCamera.transform.forward;
 
+        bool hit = Physics.SphereCast(
+            transform.position,
+            attackSphereWidth,
+            mainCamera.transform.forward,
+            out hitInfo,
+            attackReach
+        );
+
+        Character hitEnemy = null;
 
         if (hit)
         {
@@ -178,12 +161,12 @@ public class PlayerMovement : MonoBehaviour
                 Character charScript = hitInfo.collider.gameObject.GetComponent<Character>();
 
                 hitEnemy = charScript;
-                Debug.DrawRay(ray.origin, ray.direction * attackReach, Color.green);
+                Debug.DrawRay(transform.position, direction * attackReach, Color.green);
             }
         }
         else
         {
-            Debug.DrawRay(ray.origin, ray.direction * attackReach, Color.red);
+            Debug.DrawRay(transform.position, direction * attackReach, Color.red);
         }
 
         gameObject.GetComponent<Player>().Attack(hitEnemy, attackID);
@@ -210,7 +193,6 @@ public class PlayerMovement : MonoBehaviour
 				velocity.y = 0.0f;
 				velocity.z = 0.0f;
 				isDashing = false;
-				animator.SetBool("isDashing", false);
 				Physics.IgnoreCollision(GetComponent<CharacterController>(), hit.gameObject.GetComponent<CharacterController>(), true);
 				
 			}
@@ -222,9 +204,6 @@ public class PlayerMovement : MonoBehaviour
     {
         controllerConnected = Input.GetJoystickNames().Length > 0;
 		mainCamera = Camera.main;
-		
-		animator = gameObject.GetComponentInChildren<Animator>();
-
 	}
 
     // Update is called once per frame
