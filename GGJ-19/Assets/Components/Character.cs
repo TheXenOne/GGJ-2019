@@ -4,8 +4,14 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
+    public float maxHitPoint;
     public float hitPoints;
     public AttackType[] availableAttacks;
+
+    protected void Awake()
+    {
+        hitPoints = maxHitPoint;
+    }
 
     public abstract void EventDied();
 
@@ -21,9 +27,13 @@ public abstract class Character : MonoBehaviour
 
     public void Attack(Character other, int attackID)
     {
-        var attack = availableAttacks[attackID];
+        if (other)
+        {
+            var attack = availableAttacks[attackID];
 
-        other.TakeDamage(attack.Damage);
+            other.TakeDamage(attack.Damage);
+        }
         // TODO: Animation code here
+        Debug.Log("Attacking: Attack ID " + attackID.ToString(), this);
     }
 }
