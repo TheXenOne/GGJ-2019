@@ -19,6 +19,7 @@ namespace Assets.Gameplay
 
         public override void Enter()
         {
+            BGMManager.Instance.PlayCalmMusic();
             m_skipTime = (int)Time.time + m_secondsToSkip;
         }
 

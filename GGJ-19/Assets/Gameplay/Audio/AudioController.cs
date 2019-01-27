@@ -13,7 +13,7 @@ public static class AudioController
         }
         audioSource.Stop();
     }
-    public static IEnumerator FadeIn(AudioSource audioSource, float FadeTime)
+    public static IEnumerator FadeIn(AudioSource audioSource, float FadeTime, float fadeVolume = 1)
     {
         if (!audioSource.isPlaying)
         {
@@ -21,7 +21,7 @@ public static class AudioController
         }
         
         audioSource.volume = 0f;
-        while (audioSource.volume < 1)
+        while (audioSource.volume < fadeVolume)
         {
             audioSource.volume += Time.deltaTime / FadeTime;
             yield return null;
