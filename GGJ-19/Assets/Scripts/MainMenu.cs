@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class MainMenu : MonoBehaviour
 {
@@ -26,6 +27,18 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
+        /*if (UnityEditor)
+        {
+            EditorApplication.isPlaying = false;
+        }else
+        {
+            Application.Quit();
+        }*/
+
     }
 }
