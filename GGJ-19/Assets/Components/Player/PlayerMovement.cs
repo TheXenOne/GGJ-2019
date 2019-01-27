@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
 	private bool isDashing;
 	private float timeDashStarted;
 	private Camera mainCamera;
+	private Animator animator;
 
 	private Vector2 dashDirection;
 
@@ -37,8 +38,8 @@ public class PlayerMovement : MonoBehaviour
 
     void ProcessInput()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
         jumpPressed = Input.GetAxis("Jump") > 0.0f;
 		dashPressed = Input.GetAxis("Fire3") > 0.0f;
@@ -51,6 +52,14 @@ public class PlayerMovement : MonoBehaviour
     void UpdateMovement()
     {
         CharacterController controller = GetComponentInParent<CharacterController>();
+		if (controller.isGrounded)
+		{
+			animator.SetBool("isOnGround", true);
+		}
+		else
+		{
+			animator.SetBool("isOnGround", false);
+		}
 
 		//Direction of the movement is translated by the camera. This is done the simple way, so it's not recognized by the character if it should walk slowly or not.
 		if (!isDashing)
@@ -59,6 +68,16 @@ public class PlayerMovement : MonoBehaviour
 			transformedAxesInput.x = axesInput.x;
 			transformedAxesInput.y = 0;
 			transformedAxesInput.z = axesInput.y;
+
+			if(axesInput.magnitude > 0.05f)
+			{
+				animator.SetBool("isMovingHorizontally", true);
+			}
+			else
+			{
+				animator.SetBool("isMovingHorizontally", false);
+				
+			}
 			
 			transformedAxesInput =  mainCamera.transform.rotation* transformedAxesInput;
 
@@ -97,6 +116,7 @@ public class PlayerMovement : MonoBehaviour
 			dashDirection.Normalize();
 
 			isDashing = true;
+			animator.SetBool("isDashing", true);
 			
 			dashDirection.Normalize();
 			timeDashStarted = Time.time;
@@ -112,6 +132,7 @@ public class PlayerMovement : MonoBehaviour
 			if ((Time.time - timeDashStarted) > dashDuration)
 			{
 				isDashing = false;
+				animator.SetBool("isDashing", false);
 			}
 
 			
@@ -189,6 +210,7 @@ public class PlayerMovement : MonoBehaviour
 				velocity.y = 0.0f;
 				velocity.z = 0.0f;
 				isDashing = false;
+				animator.SetBool("isDashing", false);
 				Physics.IgnoreCollision(GetComponent<CharacterController>(), hit.gameObject.GetComponent<CharacterController>(), true);
 				
 			}
@@ -200,6 +222,9 @@ public class PlayerMovement : MonoBehaviour
     {
         controllerConnected = Input.GetJoystickNames().Length > 0;
 		mainCamera = Camera.main;
+		
+		animator = gameObject.GetComponentInChildren<Animator>();
+
 	}
 
     // Update is called once per frame
