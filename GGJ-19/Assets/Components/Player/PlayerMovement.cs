@@ -90,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
 			if (controller.isGrounded && jumpPressed)
 			{
 				velocity.y = jumpStrength;
+				animator.SetTrigger("isJumping");
 			}
 
 			
