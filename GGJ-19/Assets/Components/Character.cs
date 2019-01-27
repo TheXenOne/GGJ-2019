@@ -9,9 +9,12 @@ public abstract class Character : MonoBehaviour
     public float hitPoints;
     public AttackType[] availableAttacks;
 
+	private Animator animator;
+
     protected void Awake()
     {
         hitPoints = maxHitPoint;
+		animator = GetComponentInChildren<Animator>();
     }
 
     public void Update()
@@ -42,7 +45,10 @@ public abstract class Character : MonoBehaviour
 
             other.TakeDamage(attack.Damage);
         }
-        // TODO: Animation code here
+		// TODO: Animation code here
+		animator.SetInteger("attackId", attackID);
+		animator.SetTrigger("isAttacking");
+
         Debug.Log("Attacking: Attack ID " + attackID.ToString(), this);
     }
 }
