@@ -18,6 +18,12 @@ public class EnemyAI : MonoBehaviour
     public float attackCooldown;
     public StateMachine<EnemyAI> enemyStateMachine;
 
+	[HideInInspector]
+	public Animator animator;
+
+	[HideInInspector]
+	public Vector3 previousPosition;
+
 	public float deceleration;
 	public float gravity;
 	public float maxFallingSpeed;
@@ -53,6 +59,8 @@ public class EnemyAI : MonoBehaviour
             attackCooldown = 1.5f;
         }
 
+		animator = GetComponentInChildren<Animator>();
+		previousPosition = transform.position;
         attackCooldownCurrent = 0;
 
         enemyCharacter = GetComponent<Enemy>();
@@ -183,5 +191,13 @@ public class EnemyAI : MonoBehaviour
                 //footstepSource.Stop();
             }
         }
+		if(GetComponent<CharacterController>().isGrounded)
+		{
+			animator.SetBool("isOnGround", true);
+		}
+		else
+		{
+			animator.SetBool("isOnGround", false);
+		}
     }
 }

@@ -32,6 +32,17 @@ public class StateAttacking : State<EnemyAI>
     {
         Vector3 distToPlayer = EnemyAI.playerObject.transform.position - a_entity.transform.position;
         Color color = Color.green;
+		
+		Vector3 currentPosition = a_entity.transform.position;
+		if ((a_entity.previousPosition - currentPosition).magnitude >= 0.1f)
+		{
+			a_entity.animator.SetBool("isMovingHorizontally", true);
+		}
+		else
+		{
+			a_entity.animator.SetBool("isMovingHorizontally", false);
+		}
+		a_entity.previousPosition = currentPosition;
 
         if (a_entity.caravanToAttack.containsPlayer)
         {
