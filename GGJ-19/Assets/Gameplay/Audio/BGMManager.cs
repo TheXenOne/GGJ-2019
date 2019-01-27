@@ -18,4 +18,10 @@ public class BGMManager : MonoBehaviour
         StartCoroutine(AudioController.FadeOut(sourceCalm, 1f));
         StartCoroutine(AudioController.FadeIn(sourceFight, 1f));
     }
+
+    public void PlayCalmMusic()
+    {
+        StartCoroutine(AudioController.FadeOut(sourceFight, 1f));
+        StartCoroutine(AudioController.FadeIn(sourceCalm, 1f));
+    }
 }
