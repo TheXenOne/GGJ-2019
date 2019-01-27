@@ -33,7 +33,7 @@ public class Player : Character
 
         var controller = GetComponent<CharacterController>();
         controller.enabled = false;
-        transform.localPosition = bounds.center + Vector3.up * bounds.size.y;
+        transform.localPosition = bounds.center + Vector3.up * (bounds.size.y + 10.0f);
         controller.enabled = true;
         hitPoints = maxHitPoint;
     }

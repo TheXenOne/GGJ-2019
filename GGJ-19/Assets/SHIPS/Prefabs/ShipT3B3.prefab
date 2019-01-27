@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1046265790788649301}
   - component: {fileID: 4416838917698412646}
   - component: {fileID: 4107936227630497575}
-  m_Layer: 0
+  - component: {fileID: 1323989588012246720}
+  m_Layer: 9
   m_Name: Ship1_Anvil_Payload
-  m_TagString: Untagged
+  m_TagString: Caravan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a9628b210730da34baf123dfc93ac6a7, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,6 +78,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &1323989588012246720
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776559928151721218}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300008, guid: ab9f1b9017ffe8c409ff1b548e5c5425, type: 3}
 --- !u!1 &846432011085615022
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,9 +103,10 @@ GameObject:
   - component: {fileID: 5012238186277350023}
   - component: {fileID: 9003635141477796922}
   - component: {fileID: 779247382625911570}
-  m_Layer: 0
+  - component: {fileID: 2660954872262633760}
+  m_Layer: 9
   m_Name: Wing_R
-  m_TagString: Untagged
+  m_TagString: Caravan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,8 +150,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a9628b210730da34baf123dfc93ac6a7, type: 2}
-  - {fileID: 2100000, guid: d2367941595a3c84caf03412878840bc, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,6 +171,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2660954872262633760
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846432011085615022}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: ab9f1b9017ffe8c409ff1b548e5c5425, type: 3}
 --- !u!1 &1131303147787965752
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,9 +196,10 @@ GameObject:
   - component: {fileID: 1740816650892316061}
   - component: {fileID: 6463040017535192508}
   - component: {fileID: 7122910395208247783}
-  m_Layer: 0
+  - component: {fileID: 6648914342678775007}
+  m_Layer: 9
   m_Name: InnerWing_R (1)
-  m_TagString: Untagged
+  m_TagString: Caravan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,7 +243,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d2367941595a3c84caf03412878840bc, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -232,6 +263,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &6648914342678775007
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131303147787965752}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300002, guid: ab9f1b9017ffe8c409ff1b548e5c5425, type: 3}
 --- !u!1 &1471539389845253244
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,9 +288,10 @@ GameObject:
   - component: {fileID: 7458168081646092554}
   - component: {fileID: 2748902443171746753}
   - component: {fileID: 5617281869467710716}
-  m_Layer: 0
+  - component: {fileID: 5858912381395790629}
+  m_Layer: 9
   m_Name: Sponson
-  m_TagString: Untagged
+  m_TagString: Caravan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -310,6 +356,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5858912381395790629
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471539389845253244}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300010, guid: ab9f1b9017ffe8c409ff1b548e5c5425, type: 3}
 --- !u!1 &4343929530907700462
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,9 +380,10 @@ GameObject:
   m_Component:
   - component: {fileID: 218663304845820181}
   - component: {fileID: 3259550907005007045}
-  m_Layer: 0
+  - component: {fileID: 1522055765600621311}
+  m_Layer: 9
   m_Name: ShipT3B3
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -370,6 +431,20 @@ MonoBehaviour:
   containsPlayer: 0
   m_fleetPositionX: 0
   m_fleetPositionZ: 0
+--- !u!64 &1522055765600621311
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4343929530907700462}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 0}
 --- !u!1 &5394903106991414561
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,9 +456,10 @@ GameObject:
   - component: {fileID: 764957476933589895}
   - component: {fileID: 457563458821973173}
   - component: {fileID: 5103721720660479843}
-  m_Layer: 0
+  - component: {fileID: 6750739628785713882}
+  m_Layer: 9
   m_Name: Ship1_Anvil_Bow
-  m_TagString: Untagged
+  m_TagString: Caravan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -428,9 +504,9 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100004, guid: ab9f1b9017ffe8c409ff1b548e5c5425, type: 3}
-  - {fileID: 2100000, guid: a9628b210730da34baf123dfc93ac6a7, type: 2}
-  - {fileID: 2100000, guid: d2367941595a3c84caf03412878840bc, type: 2}
-  - {fileID: 2100000, guid: 3958c24697f8f704588c9352699edc5a, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -450,6 +526,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &6750739628785713882
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5394903106991414561}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300012, guid: ab9f1b9017ffe8c409ff1b548e5c5425, type: 3}
 --- !u!1 &5950470095520684741
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,9 +551,10 @@ GameObject:
   - component: {fileID: 5558651726524864537}
   - component: {fileID: 2723604421524232132}
   - component: {fileID: 7641435591631710439}
-  m_Layer: 0
+  - component: {fileID: 5469472389025258740}
+  m_Layer: 9
   m_Name: Wing_L (1)
-  m_TagString: Untagged
+  m_TagString: Caravan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -507,8 +598,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a9628b210730da34baf123dfc93ac6a7, type: 2}
-  - {fileID: 2100000, guid: d2367941595a3c84caf03412878840bc, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -528,6 +619,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5469472389025258740
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5950470095520684741}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300006, guid: ab9f1b9017ffe8c409ff1b548e5c5425, type: 3}
 --- !u!1 &6118720558437729110
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,9 +644,10 @@ GameObject:
   - component: {fileID: 6950379569470155118}
   - component: {fileID: 5221715310648487171}
   - component: {fileID: 356276812137192438}
-  m_Layer: 0
+  - component: {fileID: 3805497236855650769}
+  m_Layer: 9
   m_Name: InnerWing_L (1)
-  m_TagString: Untagged
+  m_TagString: Caravan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -585,7 +691,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d2367941595a3c84caf03412878840bc, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -605,6 +711,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3805497236855650769
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118720558437729110}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300004, guid: ab9f1b9017ffe8c409ff1b548e5c5425, type: 3}
 --- !u!1 &6191237504068476368
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,9 +736,10 @@ GameObject:
   - component: {fileID: 7540261446801095633}
   - component: {fileID: 8271031388988061165}
   - component: {fileID: 3588343767284438591}
-  m_Layer: 0
+  - component: {fileID: 8372700866499012254}
+  m_Layer: 9
   m_Name: Ship1_Anvil_Body
-  m_TagString: Untagged
+  m_TagString: Caravan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -665,9 +786,9 @@ MeshRenderer:
   - {fileID: 2100000, guid: 4543818687f9ea949824f4c66210085b, type: 2}
   - {fileID: 2100000, guid: 3fa273accb3a35944b8e08838d30a94a, type: 2}
   - {fileID: 2100000, guid: 0ebf6734b73f9b74db601b291a53958b, type: 2}
-  - {fileID: 2100000, guid: a9628b210730da34baf123dfc93ac6a7, type: 2}
+  - {fileID: 0}
   - {fileID: 2100000, guid: 0ebf6734b73f9b74db601b291a53958b, type: 2}
-  - {fileID: 2100000, guid: a9628b210730da34baf123dfc93ac6a7, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -687,6 +808,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8372700866499012254
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6191237504068476368}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300014, guid: ab9f1b9017ffe8c409ff1b548e5c5425, type: 3}
 --- !u!1 &6263490490252724461
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,9 +833,10 @@ GameObject:
   - component: {fileID: 3805655027687722983}
   - component: {fileID: 3045374934315235227}
   - component: {fileID: 2946431360858722298}
-  m_Layer: 0
+  - component: {fileID: 3712226788492289294}
+  m_Layer: 9
   m_Name: Wing_L
-  m_TagString: Untagged
+  m_TagString: Caravan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -744,8 +880,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a9628b210730da34baf123dfc93ac6a7, type: 2}
-  - {fileID: 2100000, guid: d2367941595a3c84caf03412878840bc, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -765,6 +901,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3712226788492289294
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6263490490252724461}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300006, guid: ab9f1b9017ffe8c409ff1b548e5c5425, type: 3}
 --- !u!1 &6367186091105047756
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,9 +926,10 @@ GameObject:
   - component: {fileID: 7294874120728682986}
   - component: {fileID: 6452501427252618645}
   - component: {fileID: 9034332121475857669}
-  m_Layer: 0
+  - component: {fileID: 833464298495030877}
+  m_Layer: 9
   m_Name: InnerWing_R
-  m_TagString: Untagged
+  m_TagString: Caravan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -822,7 +973,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d2367941595a3c84caf03412878840bc, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -842,6 +993,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &833464298495030877
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6367186091105047756}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300002, guid: ab9f1b9017ffe8c409ff1b548e5c5425, type: 3}
 --- !u!1 &8776076369676682943
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,9 +1018,10 @@ GameObject:
   - component: {fileID: 6688219508239639640}
   - component: {fileID: 3352283315186268728}
   - component: {fileID: 3027520063711628425}
-  m_Layer: 0
+  - component: {fileID: 4151970310344999343}
+  m_Layer: 9
   m_Name: Wing_R (1)
-  m_TagString: Untagged
+  m_TagString: Caravan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -899,8 +1065,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a9628b210730da34baf123dfc93ac6a7, type: 2}
-  - {fileID: 2100000, guid: d2367941595a3c84caf03412878840bc, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -920,6 +1086,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &4151970310344999343
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8776076369676682943}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: ab9f1b9017ffe8c409ff1b548e5c5425, type: 3}
 --- !u!1 &8928863702604153845
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,9 +1111,10 @@ GameObject:
   - component: {fileID: 4331466620684074062}
   - component: {fileID: 8402571611934842129}
   - component: {fileID: 2216909253658944290}
-  m_Layer: 0
+  - component: {fileID: 7341059500411452272}
+  m_Layer: 9
   m_Name: InnerWing_L
-  m_TagString: Untagged
+  m_TagString: Caravan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -977,7 +1158,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d2367941595a3c84caf03412878840bc, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -997,3 +1178,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7341059500411452272
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8928863702604153845}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300004, guid: ab9f1b9017ffe8c409ff1b548e5c5425, type: 3}
