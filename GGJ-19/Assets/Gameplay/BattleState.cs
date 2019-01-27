@@ -29,14 +29,15 @@ namespace Assets.Gameplay
 
         public void Update()
         {
-            var dead = m_enemies.Where(e => e.hitPoints <= 0);
+            var dead = m_enemies.Where(e => e.hitPoints <= 0).ToList();
 
             foreach (var enemy in dead)
             {
-                enemy.enabled = false;
+                var enemyAI = enemy.GetComponent<EnemyAI>();
+                enemyAI.enabled = false;
             }
 
-            if (m_enemies.Count == 0)
+            if (m_enemies.Count == dead.Count)
             {
                 Gameplay.Instance.ChangeStateWithTravelTo<BattleState>();
                 return;
@@ -50,8 +51,10 @@ namespace Assets.Gameplay
 
             foreach (var enemy in m_enemies)
             {
-                Destroy(enemy);
+                Destroy(enemy.gameObject);
             }
+
+            m_enemies.Clear();
         }
     }
 }
