@@ -141,7 +141,7 @@ public class StateClimb : State<EnemyAI>
     private void StopClimbing(EnemyAI a_entity)
     {
         a_entity.velocity = new Vector3(a_entity.velocity.x, a_entity.velocity.y - (a_entity.climbSpeed * Time.deltaTime), a_entity.velocity.z);
-        Vector3 playerPos = EnemyAI.player.transform.position;
+        Vector3 playerPos = EnemyAI.playerObject.transform.position;
         Vector3 enemyPos = a_entity.transform.position;
         enemyPos.y = playerPos.y;
     }
