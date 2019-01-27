@@ -86,7 +86,7 @@ MonoBehaviour:
     showEyeDropper: 1
   groundColor:
     m_OverrideState: 1
-    m_Value: {r: 0.369, g: 0.349, b: 0.341, a: 1}
+    m_Value: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
@@ -187,11 +187,11 @@ MonoBehaviour:
     min: 0
   fogDistance:
     m_OverrideState: 1
-    m_Value: 200
+    m_Value: 700
     min: 0
   fogBaseHeight:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: -500
   fogHeightAttenuation:
     m_OverrideState: 1
     m_Value: 0.2
