@@ -31,7 +31,21 @@ namespace Assets.Gameplay.Spawning
                 spawnScore -= spawn.m_cost;
 
                 var wagon = wagons[Random.Range(0, wagons.Count - 1)];
-                var created = Instantiate(spawn.m_prefab, new Vector3(wagon.transform.position.x, m_spawnHeight, wagon.transform.position.z), Quaternion.identity);
+
+                Vector3 spawnPoint = new Vector3();
+                Quaternion spawnRot = new Quaternion();
+
+                foreach (Transform tr in wagon.transform)
+                {
+                    if (tr.tag == "SpawnPoint")
+                    {
+                        spawnPoint = tr.position;
+                        spawnRot = tr.rotation;
+                        break;
+                    }
+                }
+                //var created = Instantiate(spawn.m_prefab, new Vector3(wagon.transform.position.x, m_spawnHeight, wagon.transform.position.z), Quaternion.identity);
+                var created = Instantiate(spawn.m_prefab, spawnPoint, spawnRot);
 
                 created.GetComponent<Enemy>().m_enemyType = spawn;
 
