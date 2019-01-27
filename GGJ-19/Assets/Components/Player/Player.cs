@@ -32,6 +32,7 @@ public class Player : Character
         controller.enabled = false;
         transform.localPosition = bounds.center + Vector3.up * bounds.size.y;
         controller.enabled = true;
+        hitPoints = maxHitPoint;
     }
 
     public void RespawnRandom()
