@@ -696,7 +696,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHitPoint: 10
   hitPoints: 10
-  availableAttacks: []
+  availableAttacks:
+  - {fileID: 11400000, guid: 6f3cc09904dc14f44959ea44d7f4364f, type: 2}
+  - {fileID: 11400000, guid: d0af18003d8fa964c8b46f3fe6d00014, type: 2}
   m_enemyType: {fileID: 11400000, guid: 42849286b075b8e45a90cafbb7a9cfca, type: 2}
   slider: {fileID: 1265554987}
 --- !u!143 &2022791888
