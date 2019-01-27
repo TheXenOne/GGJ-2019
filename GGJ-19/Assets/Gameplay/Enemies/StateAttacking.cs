@@ -33,22 +33,26 @@ public class StateAttacking : State<EnemyAI>
         Vector3 distToPlayer = EnemyAI.player.transform.position - a_entity.transform.position;
         Color color = Color.green;
 
-        if (distToPlayer.magnitude > a_entity.attackRange)
+        if (a_entity.caravanToAttack.containsPlayer)
         {
-			Vector3 temp;
-			temp.x = distToPlayer.x;
-			temp.y = 0.0f;
-			temp.z = distToPlayer.z;
-			distToPlayer = temp;
-            a_entity.velocity += distToPlayer.normalized * a_entity.accelMoveSpeed * Time.deltaTime;
 
-            color = Color.red;
-        }
+            if (distToPlayer.magnitude > a_entity.attackRange)
+            {
+                Vector3 temp;
+                temp.x = distToPlayer.x;
+                temp.y = 0.0f;
+                temp.z = distToPlayer.z;
+                distToPlayer = temp;
+                a_entity.velocity += distToPlayer.normalized * a_entity.accelMoveSpeed * Time.deltaTime;
 
-        float angle = Vector3.SignedAngle(a_entity.transform.forward, distToPlayer.normalized, Vector3.up);
-        if (Mathf.Abs(angle) > 3)
-        {
-            a_entity.transform.Rotate(new Vector3(0, angle * a_entity.turnSpeed, 0));
+                color = Color.red;
+            }
+
+            float angle = Vector3.SignedAngle(a_entity.transform.forward, distToPlayer.normalized, Vector3.up);
+            if (Mathf.Abs(angle) > 3)
+            {
+                a_entity.transform.Rotate(new Vector3(0, angle * a_entity.turnSpeed, 0));
+            }
         }
 
         Debug.DrawRay(a_entity.transform.position, a_entity.transform.TransformDirection(Vector3.forward) * distToPlayer.magnitude, color);

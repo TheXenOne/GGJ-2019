@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public GameObject caravanToAttack;
+    public Assets.Components.CaravanWagon caravanToAttack;
     public GameObject climbPoint;
     public GameObject headPoint;
     public GameObject feetPoint;

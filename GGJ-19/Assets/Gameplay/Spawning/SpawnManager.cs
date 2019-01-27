@@ -48,6 +48,15 @@ namespace Assets.Gameplay.Spawning
                 var created = Instantiate(spawn.m_prefab, spawnPoint, spawnRot);
 
                 created.GetComponent<Enemy>().m_enemyType = spawn;
+                Assets.Components.CaravanWagon carWagon = wagon.GetComponent<Assets.Components.CaravanWagon>();
+                if (carWagon)
+                {
+                    created.GetComponent<EnemyAI>().caravanToAttack = carWagon;
+                }
+                else
+                {
+                    Debug.Log("CASTFAILED");
+                }
 
                 Debug.Log($"Spawned enemy of type {created.name}");
 
