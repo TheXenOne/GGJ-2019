@@ -339,6 +339,7 @@ MonoBehaviour:
   m_state: {fileID: 0}
   m_caravan: {fileID: 2022528201}
   m_battlesFought: 0
+  m_bottom: -100
 --- !u!4 &135856714
 Transform:
   m_ObjectHideFlags: 0
@@ -1529,7 +1530,7 @@ MonoBehaviour:
   sensitivityY: 1
   minY: 0
   maxY: 50
-  distance: 10
+  distance: 20
   invertRotationControl: 0
   lookAt: {fileID: 1689150228}
 --- !u!1 &1452598626
@@ -2321,6 +2322,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5832098261793125556, guid: f83fe075e22e8e84ea02bb9cae61790f,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.928
+      objectReference: {fileID: 0}
+    - target: {fileID: 5832098261897274545, guid: f83fe075e22e8e84ea02bb9cae61790f,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.813
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f83fe075e22e8e84ea02bb9cae61790f, type: 3}
