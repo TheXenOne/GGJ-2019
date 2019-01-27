@@ -319,6 +319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 218663304845820181}
+  - component: {fileID: 3259550907005007045}
   m_Layer: 0
   m_Name: ShipT3B3
   m_TagString: Untagged
@@ -352,6 +353,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3259550907005007045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4343929530907700462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d9f74697589b24f9a4e19e8fcd2a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_wagonBase: {fileID: 4343929530907700462}
+  m_wagonUpgrades: []
+  containsPlayer: 0
+  m_fleetPositionX: 0
+  m_fleetPositionZ: 0
 --- !u!1 &5394903106991414561
 GameObject:
   m_ObjectHideFlags: 0

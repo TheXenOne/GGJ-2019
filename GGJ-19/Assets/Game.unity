@@ -2561,12 +2561,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d128402472bbe4a8fc9fd49139e142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_wagons: 10
+  m_wagons: 16
   m_people: 0
   m_currency: 0
-  m_fleetScaleX: 39
-  m_fleetScaleZ: 23
-  m_wagon: {fileID: 3644977442773015793, guid: 2a3d325c915e0c94c88dbba23f0dd644, type: 3}
+  m_fleetScaleX: 14
+  m_fleetScaleZ: 14
+  m_wagonTypes:
+  - {fileID: 4343929530907700462, guid: a9f12b4c5d66cb2438f2322229b585ea, type: 3}
+  - {fileID: 6507348384328502071, guid: 4a52e4381a6dd4c409f80f12efddb891, type: 3}
+  - {fileID: 5999276720027611583, guid: 69457305d59d39a4e90ca039a5158f19, type: 3}
+  - {fileID: 8948639045348230902, guid: 58c1ff76c59b352469645712b658531b, type: 3}
+  - {fileID: 354387261450947735, guid: 904587dc945c3e4479fb5f2d0810caf5, type: 3}
+  - {fileID: 4343929530907700462, guid: a39bf017b0dc6df479948093ddd3848c, type: 3}
 --- !u!1 &2069729838
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ namespace Assets.Components
         public int m_currency = 0;
         public float m_fleetScaleX = 16.0f;
         public float m_fleetScaleZ = 16.0f;
-        public GameObject m_wagon;
+        public GameObject[] m_wagonTypes;
 
         List<GameObject> m_wagonObjects = new List<GameObject>();
         List<Hex> m_hexes = new List<Hex>();
@@ -87,7 +87,8 @@ namespace Assets.Components
         {
             Debug.Log("Adding new wagon");
 
-            var newWagon = GameObject.Instantiate(m_wagon);
+            var wagonType = m_wagonTypes[Random.Range(0, m_wagonTypes.Length - 1)];
+            var newWagon = GameObject.Instantiate(wagonType);
             newWagon.transform.SetParent(transform);
             m_wagonObjects.Add(newWagon);
 
