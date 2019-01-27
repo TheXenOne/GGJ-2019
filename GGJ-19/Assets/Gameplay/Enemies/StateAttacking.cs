@@ -33,6 +33,11 @@ public class StateAttacking : State<EnemyAI>
 
         if (distToPlayer.magnitude > a_entity.attackRange)
         {
+			Vector3 temp;
+			temp.x = distToPlayer.x;
+			temp.y = 0.0f;
+			temp.z = distToPlayer.z;
+			distToPlayer = temp;
             a_entity.velocity += distToPlayer.normalized * a_entity.accelMoveSpeed * Time.deltaTime;
 
             color = Color.red;
