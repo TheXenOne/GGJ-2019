@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 	public float knockbackStrength;
 	public bool disableGravity;
     public float attackSphereWidth = 1.0f;
-
+    public AudioSource footstepSource;
     public float attackReach;
 
 	//TODO Move these enemy variables to the enemy file!
@@ -155,6 +155,25 @@ public class PlayerMovement : MonoBehaviour
         if (secondaryAttackPressed)
         {
             PerformAttack(1);
+        }
+
+        Vector3 transformAxesInput;
+        transformAxesInput.x = axesInput.x;
+        transformAxesInput.y = 0;
+        transformAxesInput.z = axesInput.y;
+        if (controller.isGrounded && transformAxesInput.magnitude >= 0.05f)
+        {
+            if (!footstepSource.isPlaying)
+            {
+                footstepSource.Play();
+            }
+        }
+        else
+        {
+            if (footstepSource.isPlaying)
+            {
+                footstepSource.Stop();
+            }
         }
     }
 

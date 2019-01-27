@@ -155,12 +155,12 @@ public class EnemyAI : MonoBehaviour
             {
                 if (!footstepSource.isPlaying)
                 {
-                    footstepSource.Play();
+                    //footstepSource.Play();
                 }
             }
             else
             {
-                footstepSource.Stop();
+                //footstepSource.Stop();
             }
         }
     }
