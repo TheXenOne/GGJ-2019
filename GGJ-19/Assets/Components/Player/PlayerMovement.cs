@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool movementEnabled;
 	public float knockbackStrength;
 	public bool disableGravity;
+    public float attackSphereWidth = 1.0f;
 
     public float attackReach;
 
@@ -107,22 +108,25 @@ public class PlayerMovement : MonoBehaviour
 			velocity.x = dashDirection.x* dashSpeed;
 			velocity.z = dashDirection.y* dashSpeed;
 			velocity.y = 0.0f;
-			
 
-			if ((Time.time - timeDashStarted) > dashDuration)
-			{
-				isDashing = false;
-			}
 
-			
-			
+            if ((Time.time - timeDashStarted) > dashDuration)
+            {
+                isDashing = false;
+            }
 		}
 
 		if(disableGravity)
 		{
 			velocity.y = 0;
 		}
+
         controller.Move(velocity * Time.deltaTime);
+
+        if (velocity.x != 0.0f || velocity.z != 0.0f)
+        {
+            controller.transform.rotation = Quaternion.Euler(0.0f, mainCamera.transform.rotation.eulerAngles.y, 0.0f);
+        }
 
         if(primaryAttackPressed)
         {
@@ -137,18 +141,18 @@ public class PlayerMovement : MonoBehaviour
 
     void PerformAttack(int attackID)
     {
-        Ray ray = new Ray(
-            transform.position
-            , mainCamera.transform.forward
-        );
         RaycastHit hitInfo;
-        bool hit = Physics.Raycast(
-            ray
-            , out hitInfo
-            , attackReach
-        );
-        Character hitEnemy = null;
+        Vector3 direction = mainCamera.transform.forward;
 
+        bool hit = Physics.SphereCast(
+            transform.position,
+            attackSphereWidth,
+            mainCamera.transform.forward,
+            out hitInfo,
+            attackReach
+        );
+
+        Character hitEnemy = null;
 
         if (hit)
         {
@@ -157,12 +161,12 @@ public class PlayerMovement : MonoBehaviour
                 Character charScript = hitInfo.collider.gameObject.GetComponent<Character>();
 
                 hitEnemy = charScript;
-                Debug.DrawRay(ray.origin, ray.direction * attackReach, Color.green);
+                Debug.DrawRay(transform.position, direction * attackReach, Color.green);
             }
         }
         else
         {
-            Debug.DrawRay(ray.origin, ray.direction * attackReach, Color.red);
+            Debug.DrawRay(transform.position, direction * attackReach, Color.red);
         }
 
         gameObject.GetComponent<Player>().Attack(hitEnemy, attackID);

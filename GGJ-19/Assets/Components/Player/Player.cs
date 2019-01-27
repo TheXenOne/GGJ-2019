@@ -14,17 +14,24 @@ public class Player : Character
     new void Awake()
     {
         base.Awake();
+
         Instance = this;
-		healthSlider.maxValue = hitPoints;
-		healthSlider.value = hitPoints;
+    }
+
+    public void Start()
+    {
+        healthSlider.maxValue = hitPoints;
+        healthSlider.value = hitPoints;
     }
 
     public void Respawn(GameObject wagonComponent)
     {
         Bounds bounds = wagonComponent.GetComponent<Collider>().bounds;
 
-        transform.position = bounds.center + Vector3.up * bounds.size.y;
-		
+        var controller = GetComponent<CharacterController>();
+        controller.enabled = false;
+        transform.localPosition = bounds.center + Vector3.up * bounds.size.y;
+        controller.enabled = true;
     }
 
     public void RespawnRandom()
