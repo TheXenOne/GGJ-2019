@@ -10,6 +10,10 @@ public class PlayerMovement : MonoBehaviour
 	public float gravity;
 	public float dashSpeed;
 	public float dashDuration;
+    public float dashCooldown;
+    public float dashCooldownCurrent;
+    public float attackCooldown;
+    public float attackCooldownCurrent;
 	public float maxFallingSpeed;
 	public bool movementEnabled;
 	public float knockbackStrength;
@@ -102,25 +106,29 @@ public class PlayerMovement : MonoBehaviour
 
 		if (controller.isGrounded && dashPressed && (!isDashing) && (Input.GetAxisRaw("Horizontal") != 0.0f || Input.GetAxisRaw("Vertical") != 0.0f))
 		{
-			// dash direction directly corresponds to the direction of the stick in relation to the camera - not the direction.
-			dashDirection.x = Input.GetAxisRaw("Horizontal");
-			dashDirection.y = Input.GetAxisRaw("Vertical");
-			Vector3 transformedAxesInput;
-			transformedAxesInput.x = dashDirection.x;
-			transformedAxesInput.y = 0;
-			transformedAxesInput.z = dashDirection.y;
+            if (dashCooldownCurrent <= 0.1)
+            {
+                dashCooldownCurrent = dashCooldown;
+                // dash direction directly corresponds to the direction of the stick in relation to the camera - not the direction.
+                dashDirection.x = Input.GetAxisRaw("Horizontal");
+                dashDirection.y = Input.GetAxisRaw("Vertical");
+                Vector3 transformedAxesInput;
+                transformedAxesInput.x = dashDirection.x;
+                transformedAxesInput.y = 0;
+                transformedAxesInput.z = dashDirection.y;
 
-			transformedAxesInput = mainCamera.transform.rotation * transformedAxesInput;
+                transformedAxesInput = mainCamera.transform.rotation * transformedAxesInput;
 
-			dashDirection.x = transformedAxesInput.x;
-			dashDirection.y = transformedAxesInput.z;
-			dashDirection.Normalize();
+                dashDirection.x = transformedAxesInput.x;
+                dashDirection.y = transformedAxesInput.z;
+                dashDirection.Normalize();
 
-			isDashing = true;
-			animator.SetBool("isDashing", true);
+                isDashing = true;
+                animator.SetBool("isDashing", true);
 
-			dashDirection.Normalize();
-			timeDashStarted = Time.time;
+                dashDirection.Normalize();
+                timeDashStarted = Time.time;
+            }
 		}
 
 		if(isDashing)
@@ -149,14 +157,19 @@ public class PlayerMovement : MonoBehaviour
             controller.transform.rotation = Quaternion.Euler(0.0f, mainCamera.transform.rotation.eulerAngles.y, 0.0f);
         }
 
-        if(primaryAttackPressed && !attacking)
+        if (attackCooldownCurrent <= 0.1)
         {
-            StartCoroutine(PerformAttack(0));
-        }
+            if (primaryAttackPressed && !attacking)
+            {
+                attackCooldownCurrent = attackCooldown;
+                StartCoroutine(PerformAttack(0));
+            }
 
-        if (secondaryAttackPressed && !attacking)
-        {
-            StartCoroutine(PerformAttack(1));
+            if (secondaryAttackPressed && !attacking)
+            {
+                attackCooldownCurrent = attackCooldown;
+                StartCoroutine(PerformAttack(1));
+            }
         }
 
         Vector3 transformAxesInput;
@@ -248,6 +261,18 @@ public class PlayerMovement : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
+        if (dashCooldown == 0)
+        {
+            dashCooldown = 2;
+        }
+        dashCooldownCurrent = 0;
+
+        if (attackCooldown == 0)
+        {
+            attackCooldown = 1.3f;
+        }
+        attackCooldownCurrent = 0;
+
         controllerConnected = Input.GetJoystickNames().Length > 0;
 		mainCamera = Camera.main;
 		animator = GetComponentInChildren<Animator>();
@@ -256,6 +281,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (dashCooldownCurrent > 0)
+        {
+            dashCooldownCurrent -= Time.deltaTime;
+        }
+
+        if (attackCooldownCurrent > 0)
+        {
+            attackCooldownCurrent -= Time.deltaTime;
+        }
+
         ProcessInput();
         if (movementEnabled)
         {
