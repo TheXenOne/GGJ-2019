@@ -176,8 +176,6 @@ public class PlayerMovement : MonoBehaviour
 		//TODO check if it collides with enemy and knock them back
 		if (isDashing)
 		{
-			int a;
-			a = 7;
 			if (hit.gameObject.tag == "Enemy")
 			{
 				Vector3 knockbackDirection = hit.transform.position - transform.position;

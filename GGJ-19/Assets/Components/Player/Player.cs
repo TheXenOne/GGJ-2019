@@ -11,7 +11,7 @@ public class Player : Character
 
 	private Slider healthSlider;
     
-    void Awake()
+    new void Awake()
     {
         base.Awake();
         Instance = this;
@@ -38,7 +38,6 @@ public class Player : Character
     {
         Debug.Log("Player died! Respawning...");
         RespawnRandom();
-        
     }
 
 	public override void TakeDamage(float damage)

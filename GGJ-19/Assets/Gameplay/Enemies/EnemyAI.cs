@@ -163,7 +163,5 @@ public class EnemyAI : MonoBehaviour
                 footstepSource.Stop();
             }
         }
-
-        Debug.Log(velocity.magnitude);
     }
 }

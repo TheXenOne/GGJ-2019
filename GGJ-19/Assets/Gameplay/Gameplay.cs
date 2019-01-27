@@ -10,6 +10,7 @@ namespace Assets.Gameplay
         public LoopState m_state;
         public Caravan m_caravan;
         public int m_battlesFought;
+        public float m_bottom = -100.0f;
 
         public static Gameplay Instance;
         public static Caravan Caravan => Instance.m_caravan;
