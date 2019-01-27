@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     public GameObject climbPoint;
     public GameObject headPoint;
     public GameObject feetPoint;
+    public AudioSource footstepSource;
     public float climbSpeed;
     public float maxClimbDistance;
     public float accelMoveSpeed;
@@ -31,7 +32,7 @@ public class EnemyAI : MonoBehaviour
     public CapsuleCollider enemyCapsuleCollider;
     [HideInInspector]
     public bool isClimbing;
-
+    
     [HideInInspector]
     static public GameObject player;
 
@@ -69,7 +70,6 @@ public class EnemyAI : MonoBehaviour
 				velocity.x = temp.x;
 				velocity.z = temp.y;
 			}
-
 
 			if ((deceleration * Time.deltaTime) < temp.magnitude)
 			{
@@ -118,7 +118,6 @@ public class EnemyAI : MonoBehaviour
 				velocity.z = temp.y;
 			}
 
-
 			if ((deceleration * Time.deltaTime) < temp.magnitude)
 			{
 				if (temp.x > 0.0f)
@@ -144,11 +143,27 @@ public class EnemyAI : MonoBehaviour
 				temp.x = 0.0f;
 				temp.y = 0.0f;
 			}
+
 			velocity.x = temp.x;
 			velocity.z = temp.y;
-			characterController.Move(velocity * Time.deltaTime);
-		}
-		
-		
-	}
+            characterController.Move(velocity * Time.deltaTime);
+
+            Vector3 horVel = velocity;
+            horVel.y = 0;
+
+            if (horVel.magnitude > 2 && !isClimbing)
+            {
+                if (!footstepSource.isPlaying)
+                {
+                    footstepSource.Play();
+                }
+            }
+            else
+            {
+                footstepSource.Stop();
+            }
+        }
+
+        Debug.Log(velocity.magnitude);
+    }
 }

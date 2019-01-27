@@ -1071,16 +1071,15 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4188947535256215877, guid: 9b73a82bae1512f4f9ab9bb5db2572cd,
+    - target: {fileID: 50067167026934712, guid: 9b73a82bae1512f4f9ab9bb5db2572cd,
         type: 3}
-      propertyPath: camera
-      value: 
-      objectReference: {fileID: 1388871574}
-    - target: {fileID: 4188947535256215877, guid: 9b73a82bae1512f4f9ab9bb5db2572cd,
+      propertyPath: m_Volume
+      value: 0.726
+      objectReference: {fileID: 0}
+    - target: {fileID: 50067167026934712, guid: 9b73a82bae1512f4f9ab9bb5db2572cd,
         type: 3}
-      propertyPath: m_enemyType
-      value: 
-      objectReference: {fileID: 11400000, guid: 42849286b075b8e45a90cafbb7a9cfca,
-        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b73a82bae1512f4f9ab9bb5db2572cd, type: 3}
