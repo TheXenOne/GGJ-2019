@@ -27,7 +27,7 @@ public class StatePullup : State<EnemyAI>
 
     public override void Execute(EnemyAI a_entity)
     {
-        Vector3 standPoint = a_entity.headPoint.transform.position + (a_entity.transform.forward * a_entity.enemyCapsuleCollider.radius) + new Vector3(0, (a_entity.headPoint.transform.position.y - a_entity.climbPoint.transform.position.y), 0);
+        Vector3 standPoint = a_entity.headPoint.transform.position + (a_entity.transform.forward * a_entity.enemyCapsuleCollider.radius * 2) + new Vector3(0, (a_entity.headPoint.transform.position.y - a_entity.climbPoint.transform.position.y), 0);
         a_entity.transform.position = standPoint;
         a_entity.enemyStateMachine.ChangeState(StateAttacking.Instance);
     }
