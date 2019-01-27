@@ -21,6 +21,8 @@ public class StateAttacking : State<EnemyAI>
     public override void Enter(EnemyAI a_entity)
     {
         Debug.Log("Enemy entered StateAttacking.");
+        a_entity.characterController.enabled = true;
+        a_entity.enemyCapsuleCollider.enabled = true;
         a_entity.useGravity = true;
 		//TODO Check if I didn't delete this code unnecessarily
 		//a_entity.enemyRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;

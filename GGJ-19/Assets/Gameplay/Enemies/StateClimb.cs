@@ -144,7 +144,6 @@ public class StateClimb : State<EnemyAI>
         Vector3 playerPos = EnemyAI.player.transform.position;
         Vector3 enemyPos = a_entity.transform.position;
         enemyPos.y = playerPos.y;
-        a_entity.transform.rotation = Quaternion.LookRotation(-(enemyPos - playerPos).normalized, Vector3.up);
     }
 
     public override void Exit(EnemyAI a_entity)

@@ -13,6 +13,7 @@ public class BGMManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        AudioListener.volume = 0.45f;
     }
 
     public void PlayFightMusic()
