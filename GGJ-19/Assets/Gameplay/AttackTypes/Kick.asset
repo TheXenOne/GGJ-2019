@@ -15,3 +15,4 @@ MonoBehaviour:
   BaseDamage: 3
   Modifier: 0
   Multiplier: 1
+  attackCooldown: 1.5

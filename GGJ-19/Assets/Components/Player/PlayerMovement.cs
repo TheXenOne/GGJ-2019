@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 	private bool dashPressed;
     private bool primaryAttackPressed;
     private bool secondaryAttackPressed;
+    private bool attacking = false;
     private bool controllerConnected;
 	private bool isDashing;
 	private float timeDashStarted;
@@ -147,14 +148,14 @@ public class PlayerMovement : MonoBehaviour
             controller.transform.rotation = Quaternion.Euler(0.0f, mainCamera.transform.rotation.eulerAngles.y, 0.0f);
         }
 
-        if(primaryAttackPressed)
+        if(primaryAttackPressed && !attacking)
         {
-            PerformAttack(0);
+            StartCoroutine(PerformAttack(0));
         }
 
-        if (secondaryAttackPressed)
+        if (secondaryAttackPressed && !attacking)
         {
-            PerformAttack(1);
+            StartCoroutine(PerformAttack(1));
         }
 
         Vector3 transformAxesInput;
@@ -177,7 +178,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void PerformAttack(int attackID)
+    IEnumerator PerformAttack(int attackID)
     {
         RaycastHit hitInfo;
         Vector3 direction = mainCamera.transform.forward;
@@ -192,6 +193,7 @@ public class PlayerMovement : MonoBehaviour
 
         Character hitEnemy = null;
 
+        attacking = true;
         if (hit)
         {
             if (hitInfo.collider.gameObject.tag == "Enemy")
@@ -209,6 +211,10 @@ public class PlayerMovement : MonoBehaviour
 
         gameObject.GetComponent<Player>().Attack(hitEnemy, attackID);
 
+        float cooldown = Player.Instance.availableAttacks[attackID].Cooldown;
+
+        yield return new WaitForSecondsRealtime(cooldown);
+        attacking = false;
     }
 
 
