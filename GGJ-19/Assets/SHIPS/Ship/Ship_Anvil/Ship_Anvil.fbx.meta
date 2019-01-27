@@ -1,0 +1,141 @@
+fileFormatVersion: 2
+guid: ab9f1b9017ffe8c409ff1b548e5c5425
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: InnerWing_L
+    100002: InnerWing_R
+    100004: Ship1_Anvil_Body
+    100006: Ship1_Anvil_Bow
+    100008: Ship1_Anvil_Payload
+    100010: //RootNode
+    100012: Sponson
+    100014: Wing_L
+    100016: Wing_R
+    400000: InnerWing_L
+    400002: InnerWing_R
+    400004: Ship1_Anvil_Body
+    400006: Ship1_Anvil_Bow
+    400008: Ship1_Anvil_Payload
+    400010: //RootNode
+    400012: Sponson
+    400014: Wing_L
+    400016: Wing_R
+    2100000: Sail_Mat
+    2100002: Wood_Mat
+    2100004: MetalAccent_Mat
+    2100006: Metal_Mat
+    2100008: Planks_Mat
+    2100010: Window_Mat
+    2100012: Accent_Mat
+    2100014: Stern_Mat
+    2300000: InnerWing_L
+    2300002: InnerWing_R
+    2300004: Ship1_Anvil_Body
+    2300006: Ship1_Anvil_Bow
+    2300008: Ship1_Anvil_Payload
+    2300010: Sponson
+    2300012: Wing_L
+    2300014: Wing_R
+    3300000: InnerWing_L
+    3300002: InnerWing_R
+    3300004: Ship1_Anvil_Body
+    3300006: Ship1_Anvil_Bow
+    3300008: Ship1_Anvil_Payload
+    3300010: Sponson
+    3300012: Wing_L
+    3300014: Wing_R
+    4300000: Wing_R
+    4300002: InnerWing_R
+    4300004: InnerWing_L
+    4300006: Wing_L
+    4300008: Ship1_Anvil_Payload
+    4300010: Sponson
+    4300012: Ship1_Anvil_Bow
+    4300014: Ship1_Anvil_Body
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
